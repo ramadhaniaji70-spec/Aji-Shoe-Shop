@@ -1,0 +1,2760 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickVault ID — Sneaker & Footwear Marketplace Terpercaya</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            900: '#0B0F19',
+                            800: '#111827',
+                            700: '#1F2937',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar & subtle utility styles */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .animate-slide-in {
+            animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadePop {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-pop {
+            animation: fadePop 0.22s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+    <div class="bg-dark-900 text-white text-xs py-2 px-4 text-center font-medium tracking-wide border-b border-slate-800">
+        <span class="inline-flex items-center gap-2 flex-wrap justify-center">
+            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full text-[11px] font-semibold">100% AUTHENTIC</span>
+            <span>Garansi Uang Kembali 2x Lipat Jika Tidak Original • Gunakan kode <strong class="text-emerald-400 underline decoration-dotted cursor-pointer" onclick="copyPromoCode()">SNEAKER10</strong> untuk diskon ekstra 10%!</span>
+        </span>
+    </div>
+
+    <!-- ==================== STICKY NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20 gap-3">
+                
+                <!-- Brand Logo -->
+                <a href="#" onclick="resetAllFilters(); return false;" class="flex items-center gap-2.5 shrink-0 group">
+                    <div class="w-10 h-10 rounded-xl bg-dark-900 text-white flex items-center justify-center shadow-md group-hover:bg-emerald-600 transition-colors">
+                        <i class="fa-solid fa-bolt text-emerald-400 group-hover:text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl tracking-tight text-slate-900">KICK<span class="text-emerald-600">VAULT</span></span>
+                        <span class="hidden sm:block text-[10px] font-semibold uppercase tracking-widest text-slate-400 -mt-1">Sneaker Market ID</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-xl mx-4">
+                    <div class="relative w-full">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="desktopSearchInput" placeholder="Cari Nike Dunk, Jordan, New Balance, Running, Boots..." 
+                            class="w-full pl-10 pr-10 py-2.5 bg-slate-100 hover:bg-slate-200/70 focus:bg-white border border-transparent focus:border-emerald-500 rounded-xl text-sm transition-all outline-none"
+                            oninput="handleSearch(this.value)">
+                        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Action Buttons -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Jual / Titip Sepatu CTA -->
+                    <button onclick="openSellModal()" class="inline-flex items-center gap-2 bg-dark-900 hover:bg-emerald-600 text-white text-xs sm:text-sm font-semibold px-3.5 sm:px-4 py-2.5 rounded-xl shadow-sm transition-all active:scale-95">
+                        <i class="fa-solid fa-plus-circle text-emerald-400"></i>
+                        <span>Jual <span class="hidden sm:inline">/ Titip Sepatu</span></span>
+                    </button>
+
+                    <!-- Wishlist Filter Toggle -->
+                    <button onclick="toggleWishlistFilter()" id="wishlistNavBtn" title="Favorit Saya" class="relative p-2.5 rounded-xl border border-slate-200 hover:border-rose-300 hover:bg-rose-50 text-slate-700 transition-colors">
+                        <i class="fa-regular fa-heart text-lg" id="wishlistNavIcon"></i>
+                        <span id="wishlistBadge" class="hidden absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
+                    <!-- Cart Drawer Trigger -->
+                    <button onclick="toggleCart(true)" class="relative p-2.5 rounded-xl border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50 text-slate-800 transition-colors">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-emerald-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="pb-3 md:hidden">
+                <div class="relative w-full">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="mobileSearchInput" placeholder="Cari sepatu, brand, atau kategori..." 
+                        class="w-full pl-10 pr-4 py-2 bg-slate-100 focus:bg-white border border-transparent focus:border-emerald-500 rounded-xl text-sm outline-none transition-all"
+                        oninput="handleSearch(this.value)">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO BANNER & MARKET TICKER ==================== -->
+    <section class="bg-dark-900 text-white relative overflow-hidden">
+        <!-- Decorative gradient blobs -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-emerald-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Transparansi Harga Pasaran Real-Time
+                    </div>
+                    <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+                        Beli & Titip Jual Sepatu Original di <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Bawah Harga Pasar.</span>
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+                        Bandingkan langsung harga retail resmi (MSRP), estimasi harga pasar sekunder (Market Price), dan penawaran terbaik dari penjual terverifikasi.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#katalogSection" class="bg-emerald-500 hover:bg-emerald-600 text-dark-900 font-bold text-sm px-5 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2">
+                            <span>Jelajahi Katalog</span>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <button onclick="openSellModal()" class="bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-tag text-emerald-400"></i>
+                            <span>Mulai Jual Sepatu</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Market Insights Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-dark-800/90 border border-slate-700/80 rounded-2xl p-5 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between border-b border-slate-700/80 pb-3 mb-4">
+                            <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-emerald-400"></i>
+                        <span class="font-display font-bold text-sm tracking-wide">64+ Brand Resmi & Terverifikasi</span>
+                    </div>
+                    <span class="text-[11px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md">7 Kategori Lengkap</span>
+                </div>
+                            <span class="text-[11px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded-md">Live Update</span>
+                        </div>
+                        <div class="space-y-3 text-xs sm:text-sm">
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+                                <div>
+                                    <p class="font-semibold text-white">Air Jordan 1 Low OG</p>
+                                    <p class="text-xs text-slate-400">Rata-rata pasar: Rp 2.650.000</p>
+                                </div>
+                                <span class="text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg text-xs">
+                                    Hemat s/d 21%
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+                                <div>
+                                    <p class="font-semibold text-white">New Balance 530 White Silver</p>
+                                    <p class="text-xs text-slate-400">Rata-rata pasar: Rp 1.890.000</p>
+                                </div>
+                                <span class="text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg text-xs">
+                                    Hemat s/d 18%
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+                                <div>
+                                    <p class="font-semibold text-white">Nike Pegasus 41 Running</p>
+                                    <p class="text-xs text-slate-400">Rata-rata pasar: Rp 2.199.000</p>
+                                </div>
+                                <span class="text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg text-xs">
+                                    Hemat s/d 25%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CATALOG SECTION ==================== -->
+    <main id="katalogSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Filter & Sorting Controls Bar -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm mb-6 space-y-4">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                
+                <!-- Category Pills -->
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 lg:pb-0" id="categoryFilterContainer">
+                    <button onclick="setCategoryFilter('Semua')" data-cat="Semua" class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-dark-900 text-white shadow-sm">
+                        Semua Sepatu
+                    </button>
+                    <button onclick="setCategoryFilter('Sneakers')" data-cat="Sneakers" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Sneakers & Lifestyle
+                    </button>
+                    <button onclick="setCategoryFilter('Running')" data-cat="Running" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Running & Sport
+                    </button>
+                    <button onclick="setCategoryFilter('Basketball')" data-cat="Basketball" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Basketball
+                    </button>
+                    <button onclick="setCategoryFilter('Skateboarding')" data-cat="Skateboarding" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Skateboarding
+                    </button>
+                    <button onclick="setCategoryFilter('Boots/Formal')" data-cat="Boots/Formal" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Boots & Formal
+                    </button>
+                    <button onclick="setCategoryFilter('Outdoor/Trail')" data-cat="Outdoor/Trail" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Outdoor & Trail
+                    </button>
+                    <button onclick="setCategoryFilter('Slides/Sandals')" data-cat="Slides/Sandals" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Slides & Sandals
+                    </button>
+                </div>
+
+                <!-- Brand, Condition & Sort Dropdowns -->
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <!-- Dynamic Brand Filter (Populated automatically with 64+ brands) -->
+                    <div class="relative">
+                        <select id="brandSelect" onchange="handleBrandFilter(this.value)" class="appearance-none bg-slate-100 hover:bg-slate-200/70 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold rounded-xl pl-3.5 pr-8 py-2 outline-none focus:border-emerald-500 cursor-pointer max-w-[200px] sm:max-w-[230px]">
+                            <option value="Semua">Semua Brand (64+)</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                    </div>
+
+                    <!-- Condition Filter -->
+                    <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+                        <button onclick="setConditionFilter('Semua')" data-cond="Semua" class="cond-btn px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition-all">Semua</button>
+                        <button onclick="setConditionFilter('Baru')" data-cond="Baru" class="cond-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">Baru</button>
+                        <button onclick="setConditionFilter('Pre-loved')" data-cond="Pre-loved" class="cond-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">Titip Jual</button>
+                    </div>
+
+                    <!-- Sort Selector -->
+                    <div class="relative flex-1 sm:flex-initial">
+                        <select id="sortSelect" onchange="handleSort(this.value)" class="w-full sm:w-auto appearance-none bg-slate-100 hover:bg-slate-200/70 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold rounded-xl pl-3.5 pr-9 py-2 outline-none focus:border-emerald-500 cursor-pointer">
+                            <option value="featured">Urutkan: Rekomendasi</option>
+                            <option value="discount_desc">Hemat Terbesar (%)</option>
+                            <option value="price_asc">Harga: Termurah</option>
+                            <option value="price_desc">Harga: Termahal</option>
+                            <option value="rating_desc">Rating Tertinggi</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Brand Explorer Strip (Updates dynamically by selected category) -->
+            <div class="pt-3 border-t border-slate-100">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                        <i class="fa-solid fa-tags text-emerald-600"></i>
+                        <span id="brandStripTitle">Jelajahi 64 Brand Tersedia</span>
+                    </span>
+                    <span id="brandCountBadge" class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">64 Brand</span>
+                </div>
+                <div id="brandStripContainer" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+                    <!-- Brand pills injected dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Active Results Summary & Demo Reset -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100 text-xs text-slate-500">
+                <div class="flex items-center gap-2">
+                    <span id="resultCountText" class="font-medium text-slate-700">Menampilkan 20 sepatu terbaik</span>
+                    <span id="activeFilterBadge" class="hidden bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-semibold">Filter Aktif</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="resetAllFilters()" class="text-slate-500 hover:text-slate-900 underline">Reset Filter</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="resetDemoData()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 px-2.5 py-1 rounded-lg font-semibold inline-flex items-center gap-1.5 transition-colors" title="Kembalikan data katalog lengkap terbaru">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Katalog Default
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <!-- Product cards injected via JS -->
+        </div>
+
+        <!-- Empty State (Shown if filter yields 0 results) -->
+        <div id="emptyState" class="hidden bg-white rounded-2xl border border-slate-200 p-12 text-center my-6">
+            <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-shoe-prints"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-1">Sepatu tidak ditemukan</h3>
+            <p class="text-sm text-slate-500 max-w-md mx-auto mb-5">Coba ubah kata kunci pencarian, pilih kategori lain, atau tampilkan semua kondisi sepatu.</p>
+            <button onclick="resetAllFilters()" class="bg-dark-900 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
+                Tampilkan Semua Sepatu
+            </button>
+        </div>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-dark-900 text-slate-400 border-t border-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-500 text-dark-900 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <span class="font-display font-extrabold text-xl text-white">KICK<span class="text-emerald-400">VAULT</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+                        Platform jual beli dan konsinyasi sepatu terpercaya di Indonesia dengan indikator transparansi harga retail resmi & harga pasaran real-time.
+                    </p>
+                    <div class="flex items-center gap-4 pt-2 text-xs text-slate-300">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Legit Check 14-Titik</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-emerald-400"></i> Pengiriman Diasuransikan</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-display font-bold text-sm mb-3">Kategori Populer</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="setCategoryFilter('Sneakers')" class="hover:text-emerald-400 transition-colors">Sneakers & Streetwear</button></li>
+                        <li><button onclick="setCategoryFilter('Running')" class="hover:text-emerald-400 transition-colors">Sepatu Lari & Marathon</button></li>
+                        <li><button onclick="setCategoryFilter('Basketball')" class="hover:text-emerald-400 transition-colors">Sepatu Basket Pro</button></li>
+                        <li><button onclick="setCategoryFilter('Boots/Formal')" class="hover:text-emerald-400 transition-colors">Boots & Kulit Formal</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-display font-bold text-sm mb-3">Layanan Penjual</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="openSellModal()" class="hover:text-emerald-400 transition-colors">Titip Jual / Consignment</button></li>
+                        <li><button onclick="openSellModal()" class="hover:text-emerald-400 transition-colors">Jual Sepatu Koleksi</button></li>
+                        <li><span class="text-slate-500">Komisi Penjual Mulai 5%</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs gap-3">
+                <p>&copy; 2026 KickVault Indonesia. Semua Hak Dilindungi.</p>
+                <p class="text-slate-500">Data harga pasaran diperbarui secara berkala untuk referensi pembeli.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL 1: PRODUCT DETAIL & PRICE COMPARISON + REVIEWS ==================== -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/70 backdrop-blur-sm p-3 sm:p-6 flex items-center justify-center">
+        <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-200 animate-pop my-auto">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 sm:px-7 py-4 border-b border-slate-100 bg-slate-50/70">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                    <span id="modalBrandBadge" class="bg-dark-900 text-white px-2.5 py-0.5 rounded-md uppercase tracking-wider">BRAND</span>
+                    <span>&bull;</span>
+                    <span id="modalCategoryText">Kategori</span>
+                </div>
+                <button onclick="closeProductModal()" class="w-9 h-9 rounded-full bg-white border border-slate-200 hover:bg-slate-100 flex items-center justify-center text-slate-600 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-5 sm:p-7 max-h-[82vh] overflow-y-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
+                    
+                    <!-- Left Column: Image & Price Analytics Box -->
+                    <div class="md:col-span-5 space-y-4">
+                        <div class="relative aspect-square rounded-2xl bg-slate-100 overflow-hidden border border-slate-200/80 group">
+                            <img id="modalProductImg" src="" alt="Sepatu" class="w-full h-full object-cover">
+                            <span id="modalConditionBadge" class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                Baru
+                            </span>
+                        </div>
+
+                        <!-- Market Price Breakdown Card -->
+                        <div class="bg-slate-900 text-white rounded-2xl p-4 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-scale-balanced text-emerald-400"></i> Analisis Harga Pasaran
+                                </span>
+                                <span id="modalSavingsBadge" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold px-2 py-0.5 rounded-full">
+                                    Hemat 20%
+                                </span>
+                            </div>
+
+                            <div class="space-y-2 text-xs">
+                                <div class="flex justify-between items-center text-slate-400">
+                                    <span>Harga Retail Resmi (MSRP)</span>
+                                    <span id="modalRetailPrice" class="font-medium text-slate-200">Rp 0</span>
+                                </div>
+                                <div class="flex justify-between items-center text-slate-400">
+                                    <span>Estimasi Harga Pasaran</span>
+                                    <span id="modalMarketPrice" class="font-medium line-through text-slate-300">Rp 0</span>
+                                </div>
+                                <div class="border-t border-slate-800 pt-2 flex justify-between items-center">
+                                    <span class="font-semibold text-white">Harga Jual KickVault</span>
+                                    <span id="modalSellingPrice" class="font-display font-extrabold text-base text-emerald-400">Rp 0</span>
+                                </div>
+                            </div>
+
+                            <!-- Visual Price Bar Comparison -->
+                            <div class="pt-1">
+                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden flex">
+                                    <div id="modalPriceBar" class="bg-gradient-to-r from-emerald-500 to-teal-300 h-full rounded-full transition-all duration-500" style="width: 78%"></div>
+                                </div>
+                                <p id="modalSavingsNominal" class="text-[11px] text-emerald-300 mt-1.5 font-medium">
+                                    Kamu hemat Rp 0 dibanding beli di pasaran!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details, Size Selector, Reviews -->
+                    <div class="md:col-span-7 flex flex-col justify-between space-y-5">
+                        <div class="space-y-4">
+                            <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Brand * <span class="font-normal text-slate-400">(Pilih atau ketik baru)</span></label>
+                        <input type="text" id="sellBrand" list="sellBrandDatalist" required placeholder="Nike, Hoka, Salomon, Red Wing, dll" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none">
+                        <datalist id="sellBrandDatalist"></datalist>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Brand *</label>
+                        <input type="text" id="sellBrand" required placeholder="Nike, Adidas, New Balance, dll" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Kategori *</label>
+                        <select id="sellCategory" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-white focus:border-emerald-500 outline-none">
+                            <option value="Sneakers">Sneakers & Lifestyle</option>
+                            <option value="Running">Running & Sport</option>
+                            <option value="Basketball">Basketball</option>
+                            <option value="Skateboarding">Skateboarding</option>
+                            <option value="Boots/Formal">Boots & Formal</option>
+                            <option value="Outdoor/Trail">Outdoor & Trail</option>
+                            <option value="Slides/Sandals">Slides & Sandals</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Kondisi Sepatu *</label>
+                        <select id="sellCondition" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-white focus:border-emerald-500 outline-none">
+                            <option value="Baru">Baru (BNIB - Brand New In Box)</option>
+                            <option value="Pre-loved">Pre-loved / Titip Jual (VNDS / Mulus)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama Toko / Penjual *</label>
+                        <input type="text" id="sellSeller" required placeholder="Contoh: JakartaKicks Official" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- Price Inputs with Live Savings Preview -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-800">Pengaturan Harga & Perbandingan Pasar</span>
+                        <span id="sellLiveSavingsPreview" class="text-[11px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">Hemat 0%</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Harga Jual Anda (Rp) *</label>
+                            <input type="number" id="sellPrice" required min="100000" step="10000" placeholder="1450000" oninput="updateSellSavingsPreview()" class="w-full px-3 py-2 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none font-semibold text-emerald-700">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Harga Pasaran (Rp) *</label>
+                            <input type="number" id="sellMarketPrice" required min="100000" step="10000" placeholder="1850000" oninput="updateSellSavingsPreview()" class="w-full px-3 py-2 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Harga Retail / MSRP (Rp)</label>
+                            <input type="number" id="sellRetailPrice" min="100000" step="10000" placeholder="1729000" class="w-full px-3 py-2 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Size Multi-select -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Ukuran Tersedia (EU) * <span class="font-normal text-slate-500">(Pilih minimal 1)</span></label>
+                    <div class="flex flex-wrap gap-2" id="sellSizesContainer">
+                        <!-- Checkboxes for EU 38 - 45 -->
+                        <label class="cursor-pointer"><input type="checkbox" value="38" class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 38</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="39" class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 39</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="40" checked class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 40</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="41" checked class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 41</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="42" checked class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 42</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="43" class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 43</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="44" class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 44</span></label>
+                        <label class="cursor-pointer"><input type="checkbox" value="45" class="peer hidden sell-size-cb"><span class="inline-block px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold peer-checked:bg-dark-900 peer-checked:text-white peer-checked:border-dark-900 transition-all">EU 45</span></label>
+                    </div>
+                </div>
+
+                <!-- Image URL or Preset Selector -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Foto Sepatu (URL atau Pilih Preset Sesuai Jenis Sepatu)</label>
+                    <input type="url" id="sellImageUrl" placeholder="https://images.unsplash.com/..." class="w-full px-3.5 py-2 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none mb-2">
+                    <div class="flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar">
+                        <span class="text-[11px] font-semibold text-slate-500 shrink-0">Preset Foto:</span>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Air Jordan High</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Air Force White</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Running Merah</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Basketball Neon</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Skate Sneakers</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Leather Boots</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Outdoor Trail</button>
+                        <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80')" class="shrink-0 text-[11px] bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 px-2.5 py-1 rounded-lg font-medium text-slate-700 transition-colors">Slides / Sandals</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Deskripsi & Catatan Penjual *</label>
+                    <textarea id="sellDescription" required rows="2" placeholder="Jelaskan kelengkapan box, extra laces, kondisi tag, atau catatan khusus..." class="w-full px-3.5 py-2 text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none"></textarea>
+                </div>
+
+                <div class="flex items-center justify-end gap-3 pt-2 border-t border-slate-100">
+                    <button type="button" onclick="closeSellModal()" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-100">Batal</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/20 transition-all">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i> Tayangkan Sekarang
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE-OVER SHOPPING CART DRAWER ==================== -->
+    <div id="cartDrawerBackdrop" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs transition-opacity" onclick="toggleCart(false)"></div>
+    <aside id="cartDrawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-white shadow-2xl hidden flex-col justify-between border-l border-slate-200 animate-slide-in">
+        
+        <!-- Cart Header -->
+        <div class="px-5 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-bag-shopping text-emerald-600 text-lg"></i>
+                <h2 class="font-display font-bold text-base text-slate-900">Keranjang Belanja (<span id="cartDrawerCount">0</span>)</h2>
+            </div>
+            <button onclick="toggleCart(false)" class="w-8 h-8 rounded-full bg-white border border-slate-200 hover:bg-slate-100 flex items-center justify-center text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Cart items rendered via JS -->
+        </div>
+
+        <!-- Cart Footer & Checkout Summary -->
+        <div id="cartFooter" class="border-t border-slate-200 bg-slate-50 p-5 space-y-3.5">
+            <!-- Promo Code Input -->
+            <div class="flex gap-2">
+                <input type="text" id="promoCodeInput" placeholder="Kode promo (coba: SNEAKER10)" class="flex-1 text-xs px-3 py-2 rounded-xl border border-slate-300 bg-white uppercase font-semibold outline-none focus:border-emerald-500">
+                <button onclick="applyPromoCode()" class="px-4 py-2 rounded-xl bg-dark-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors">Pakai</button>
+            </div>
+            <p id="promoFeedbackMsg" class="hidden text-[11px] font-semibold"></p>
+
+            <!-- Summary Numbers -->
+            <div class="space-y-1.5 text-xs text-slate-600 pt-1">
+                <div class="flex justify-between">
+                    <span>Subtotal Produk</span>
+                    <span id="cartSubtotal" class="font-semibold text-slate-900">Rp 0</span>
+                </div>
+                <div class="flex justify-between text-emerald-600 font-medium">
+                    <span>Total Hemat dari Harga Pasar</span>
+                    <span id="cartMarketSavings">- Rp 0</span>
+                </div>
+                <div id="cartPromoRow" class="hidden justify-between text-emerald-600 font-semibold">
+                    <span>Diskon Promo (10%)</span>
+                    <span id="cartPromoDiscount">- Rp 0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Biaya Autentikasi & Asuransi</span>
+                    <span class="font-semibold text-slate-900">Rp 25.000</span>
+                </div>
+                <div class="border-t border-slate-200 pt-2 flex justify-between items-center text-sm">
+                    <span class="font-bold text-slate-900">Total Pembayaran</span>
+                    <span id="cartGrandTotal" class="font-display font-extrabold text-lg text-emerald-600">Rp 0</span>
+                </div>
+            </div>
+
+            <button onclick="processCheckout()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all flex items-center justify-center gap-2 active:scale-98">
+                <i class="fa-solid fa-lock"></i>
+                <span>Checkout Sekarang</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ==================== MODAL 3: CHECKOUT ORDER CONFIRMATION ==================== -->
+    <div id="checkoutSuccessModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-sm p-4 flex items-center justify-center">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-200 animate-pop space-y-4">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-600">Pesanan Berhasil Dibuat</span>
+                <h3 class="font-display font-extrabold text-xl text-slate-900 mt-1">Terima Kasih Telah Berbelanja!</h3>
+                <p class="text-xs text-slate-500 mt-1">ID Pesanan: <strong id="orderInvoiceId" class="text-slate-800">#KV-882910</strong></p>
+            </div>
+            <div class="bg-slate-50 rounded-2xl p-4 text-left text-xs space-y-2 border border-slate-200/80">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Total Dibayar:</span>
+                    <span id="orderPaidAmount" class="font-bold text-slate-900">Rp 0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Total Hemat Pasar:</span>
+                    <span id="orderSavedAmount" class="font-bold text-emerald-600">Rp 0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Status Verifikasi:</span>
+                    <span class="font-semibold text-blue-600">Menunggu Legit Check Hub</span>
+                </div>
+            </div>
+            <button onclick="closeCheckoutModal()" class="w-full bg-dark-900 hover:bg-emerald-600 text-white font-bold text-sm py-3 rounded-xl transition-colors">
+                Lanjut Jelajahi Sepatu
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 bg-dark-900 text-white px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 text-xs sm:text-sm font-medium animate-pop">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toastMessage">Notifikasi</span>
+    </div>
+
+    <!-- ==================== APPLICATION LOGIC (VANILLA JS) ==================== -->
+    <script>
+        // Verified Category-Matched Photography Pool
+        const PHOTO_POOL = {
+            sneakerHigh: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+            sneakerWhite: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+            sneakerBlue: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=800&q=80",
+            sneakerClassic: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=800&q=80",
+            sneakerLuxury: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80",
+            runningRed: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+            runningMesh: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+            runningBlue: "https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&w=800&q=80",
+            runningY2K: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=800&q=80",
+            basketballNeon: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80",
+            basketballRetro: "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?auto=format&fit=crop&w=800&q=80",
+            basketballCourt: "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=800&q=80",
+            skateVans: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80",
+            skateCanvas: "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=800&q=80",
+            skateSuede: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80",
+            bootsDerby: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80",
+            bootsWork: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=800&q=80",
+            bootsChelsea: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=800&q=80",
+            trailTech: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=800&q=80",
+            trailHike: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=80",
+            slidesSandals: "https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=800&q=80"
+        };
+
+        // 1. EXPANDED CATALOG DATASET: 64 DISTINCT BRANDS ACROSS ALL 7 CATEGORIES (8-13 BRANDS PER CATEGORY)
+        const INITIAL_PRODUCTS = [
+            // ================= CATEGORY 1: SNEAKERS (13 BRANDS) =================
+            {
+                id: 'kv-101',
+                name: "Air Jordan 1 Retro High OG 'Chicago Lost & Found'",
+                brand: "Jordan",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 3850000,
+                retailPrice: 2849000,
+                marketPrice: 4950000,
+                rating: 5.0,
+                reviewCount: 164,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "HypeVault Jakarta",
+                image: PHOTO_POOL.sneakerHigh,
+                description: "Siluet legendaris Air Jordan 1 High OG warna merah-putih-hitam Chicago dengan sentuhan vintage cracked leather dan box kolektor.",
+                reviews: [{ author: "Rizky Pratama", rating: 5, date: "2 hari lalu", comment: "100% legit, harga jauh lebih hemat dibanding reseller lain!" }]
+            },
+            {
+                id: 'kv-102',
+                name: "Nike Air Force 1 '07 Low 'Triple White'",
+                brand: "Nike",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1390000,
+                retailPrice: 1549000,
+                marketPrice: 1750000,
+                rating: 4.9,
+                reviewCount: 342,
+                sizes: [38, 39, 40, 41, 42, 43, 44],
+                seller: "SneakerLab ID",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Sepatu putih klasik paling ikonik dari Nike dengan material kulit crisp white dan bantalan Nike Air yang empuk.",
+                reviews: [{ author: "Nadia Putri", rating: 5, date: "3 hari lalu", comment: "Sepatu wajib punya, bersih dan jahitan super rapi." }]
+            },
+            {
+                id: 'kv-103',
+                name: "Adidas Samba OG 'Cloud White Core Black'",
+                brand: "Adidas",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1850000,
+                retailPrice: 2200000,
+                marketPrice: 2350000,
+                rating: 4.9,
+                reviewCount: 275,
+                sizes: [38, 39, 40, 41, 42, 43],
+                seller: "ThreeStripes Hub",
+                image: PHOTO_POOL.sneakerClassic,
+                description: "Klasik sepanjang masa dengan upper kulit lembut, aksen suede T-toe abu-abu, dan outsole karet gum khas Samba OG.",
+                reviews: [{ author: "Fajar Nugroho", rating: 5, date: "5 hari lalu", comment: "Samba OG paling dicari, dapat harga di bawah retail di sini!" }]
+            },
+            {
+                id: 'kv-104',
+                name: "New Balance 550 'White UNC University Blue'",
+                brand: "New Balance",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1790000,
+                retailPrice: 2099000,
+                marketPrice: 2350000,
+                rating: 4.8,
+                reviewCount: 148,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "NBLab Indonesia",
+                image: PHOTO_POOL.sneakerBlue,
+                description: "Siluet retro court akhir tahun 80-an dari New Balance dengan panel kulit premium berpori dan aksen biru muda klasik.",
+                reviews: [{ author: "Kevin Wijaya", rating: 5, date: "4 hari lalu", comment: "Pas banget dipakai harian maupun nongkrong." }]
+            },
+            {
+                id: 'kv-105',
+                name: "Onitsuka Tiger Mexico 66 'Yellow Black Kill Bill'",
+                brand: "Onitsuka Tiger",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1990000,
+                retailPrice: 2300000,
+                marketPrice: 2550000,
+                rating: 4.9,
+                reviewCount: 192,
+                sizes: [38, 39, 40, 41, 42, 43],
+                seller: "NipponKicks ID",
+                image: PHOTO_POOL.sneakerClassic,
+                description: "Ikon warisan Jepang dengan profil ramping, kulit lentur premium, dan garis khas Tiger Stripes yang timeless.",
+                reviews: [{ author: "Ayu Lestari", rating: 5, date: "1 minggu lalu", comment: "Ringan dan fleksibel banget di kaki!" }]
+            },
+            {
+                id: 'kv-106',
+                name: "Puma Palermo Leather 'Cobalt White Gum'",
+                brand: "Puma",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1290000,
+                retailPrice: 1599000,
+                marketPrice: 1650000,
+                rating: 4.8,
+                reviewCount: 87,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "TerraceCulture ID",
+                image: PHOTO_POOL.sneakerBlue,
+                description: "Sepatu terrace klasik tahun 80-an dengan konstruksi T-toe suede, branding foil emas, dan sol karet gum klasik.",
+                reviews: [{ author: "Bima Sakti", rating: 5, date: "6 hari lalu", comment: "Alternatif terrace sneaker terbaik dengan harga ramah." }]
+            },
+            {
+                id: 'kv-107',
+                name: "Reebok Club C 85 Vintage 'Chalk Alabaster'",
+                brand: "Reebok",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 1150000,
+                retailPrice: 1499000,
+                marketPrice: 1450000,
+                rating: 4.8,
+                reviewCount: 134,
+                sizes: [38, 39, 40, 41, 42, 43],
+                seller: "RetroCourt Store",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Sepatu tenis minimalis era 1985 dengan kulit garment lembut berwarna broken white dan lapisan terry towel di bagian kerah.",
+                reviews: [{ author: "Dian Permata", rating: 5, date: "3 hari lalu", comment: "Kulitnya empuk banget sejak pemakaian pertama." }]
+            },
+            {
+                id: 'kv-108',
+                name: "Veja Campo Chromefree Leather 'Extra White'",
+                brand: "Veja",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 2150000,
+                retailPrice: 2599000,
+                marketPrice: 2650000,
+                rating: 4.9,
+                reviewCount: 95,
+                sizes: [38, 39, 40, 41, 42],
+                seller: "EuroKicks Jakarta",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Sneaker ramah lingkungan asal Prancis dengan kulit bebas krom, logo V dari karet Amazon, dan sol karet vulkanisir.",
+                reviews: [{ author: "Clara Wijaya", rating: 5, date: "5 hari lalu", comment: "Clean look maksimal buat gaya smart-casual." }]
+            },
+            {
+                id: 'kv-109',
+                name: "Common Projects Original Achilles Low 'White'",
+                brand: "Common Projects",
+                category: "Sneakers",
+                condition: "Pre-loved",
+                price: 3950000,
+                retailPrice: 6800000,
+                marketPrice: 5900000,
+                rating: 5.0,
+                reviewCount: 42,
+                sizes: [40, 41, 42],
+                seller: "LuxuryConsign_JKT",
+                image: PHOTO_POOL.sneakerLuxury,
+                description: "Buatan tangan di Italia menggunakan kulit Nappa full-grain dengan nomor seri emas ikonik di bagian tumit. Kondisi VNDS 96%.",
+                reviews: [{ author: "Jonathan Lim", rating: 5, date: "1 minggu lalu", comment: "Kualitas kulit Italia memang tiada tandingan, hemat hampir 2 juta." }]
+            },
+            {
+                id: 'kv-110',
+                name: "Autry Medalist Low Leather 'White Gum'",
+                brand: "Autry",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 2690000,
+                retailPrice: 3350000,
+                marketPrice: 3290000,
+                rating: 4.9,
+                reviewCount: 64,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "EuroKicks Jakarta",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Siluet tenis Amerika tahun 80-an yang kembali populer dengan bendera AS di sisi samping dan kulit kambing yang super lembut.",
+                reviews: [{ author: "Rendy Tan", rating: 5, date: "4 hari lalu", comment: "Nyaman dan elegan, jarang yang kembaran di jalan." }]
+            },
+            {
+                id: 'kv-111',
+                name: "Axel Arigato Clean 90 Triple White Leather",
+                brand: "Axel Arigato",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 3150000,
+                retailPrice: 4100000,
+                marketPrice: 3950000,
+                rating: 4.9,
+                reviewCount: 53,
+                sizes: [40, 41, 42, 43],
+                seller: "ScandiArchive ID",
+                image: PHOTO_POOL.sneakerLuxury,
+                description: "Sneaker minimalis asal Swedia yang dibuat secara handmade di Portugal dengan footbed ber-arch support yang nyaman.",
+                reviews: [{ author: "Kevin Setiawan", rating: 5, date: "6 hari lalu", comment: "Solnya lebih empuk dibanding sneaker minimalis lainnya." }]
+            },
+            {
+                id: 'kv-112',
+                name: "Maison Margiela Replica GAT 'White Grey Suede'",
+                brand: "Maison Margiela",
+                category: "Sneakers",
+                condition: "Pre-loved",
+                price: 5450000,
+                retailPrice: 8900000,
+                marketPrice: 7800000,
+                rating: 5.0,
+                reviewCount: 38,
+                sizes: [41, 42, 43],
+                seller: "LuxuryConsign_JKT",
+                image: PHOTO_POOL.sneakerClassic,
+                description: "German Army Trainer ikonik dari Maison Margiela dengan kombinasi kulit anak sapi dan suede abu-abu muda. Kondisi 95% lengkap dustbag.",
+                reviews: [{ author: "Aldo Pratama", rating: 5, date: "2 minggu lalu", comment: "Grail sneaker kondisi mulus seperti baru!" }]
+            },
+            {
+                id: 'kv-113',
+                name: "Superga 2750 Cotu Classic 'Total White Canvas'",
+                brand: "Superga",
+                category: "Sneakers",
+                condition: "Baru",
+                price: 690000,
+                retailPrice: 899000,
+                marketPrice: 850000,
+                rating: 4.7,
+                reviewCount: 118,
+                sizes: [37, 38, 39, 40, 41, 42],
+                seller: "CanvasCulture ID",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Sepatu kanvas katun breathable klasik asal Italia dengan sol karet alami vulkanisir yang ringan dan kasual.",
+                reviews: [{ author: "Sari Indah", rating: 5, date: "3 hari lalu", comment: "Ringan dan gampang dipadukan dengan outfit apa saja." }]
+            },
+
+            // ================= CATEGORY 2: RUNNING (10 BRANDS) =================
+            {
+                id: 'kv-201',
+                name: "Hoka Clifton 9 'Goblin Blue / Virtual'",
+                brand: "Hoka",
+                category: "Running",
+                condition: "Baru",
+                price: 2050000,
+                retailPrice: 2499000,
+                marketPrice: 2450000,
+                rating: 4.9,
+                reviewCount: 132,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "RunCulture Store",
+                image: PHOTO_POOL.runningBlue,
+                description: "Sepatu lari harian ultra-ringan dengan tumpukan busa CMEVA maksimal yang memberikan sensasi melayang dan perlindungan sendi optimal.",
+                reviews: [{ author: "Dr. Farhan", rating: 5, date: "2 hari lalu", comment: "Paling nyaman untuk easy run dan long run di aspal." }]
+            },
+            {
+                id: 'kv-202',
+                name: "ASICS Gel-Kayano 14 'Cream Black Metallic'",
+                brand: "ASICS",
+                category: "Running",
+                condition: "Pre-loved",
+                price: 1750000,
+                retailPrice: 2399000,
+                marketPrice: 2490000,
+                rating: 4.8,
+                reviewCount: 112,
+                sizes: [40, 41, 42],
+                seller: "ConsignByArdi",
+                image: PHOTO_POOL.runningY2K,
+                description: "Titip jual kondisi 95% mulus terawat lengkap box asli. Siluet Y2K runner dengan teknologi bantalan GEL klasik dan TRUSSTIC support.",
+                reviews: [{ author: "Sinta Dewi", rating: 5, date: "3 hari lalu", comment: "Sesuai foto dan deskripsi, bersih wangi siap pakai." }]
+            },
+            {
+                id: 'kv-203',
+                name: "Brooks Ghost 16 'Peacoat Atomic Blue'",
+                brand: "Brooks",
+                category: "Running",
+                condition: "Baru",
+                price: 1890000,
+                retailPrice: 2299000,
+                marketPrice: 2250000,
+                rating: 4.9,
+                reviewCount: 94,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "MarathonGear ID",
+                image: PHOTO_POOL.runningBlue,
+                description: "Daily trainer andalan pelari jarak jauh dengan bantalan DNA LOFT v3 nitrogen-infused yang lembut dan transisi tumit-ke-ujung mulus.",
+                reviews: [{ author: "Hendra Kusuma", rating: 5, date: "4 hari lalu", comment: "Stabilitas dan kenyamanannya luar biasa untuk lari 10K-21K." }]
+            },
+            {
+                id: 'kv-204',
+                name: "Saucony Endorphin Speed 4 'Vizired'",
+                brand: "Saucony",
+                category: "Running",
+                condition: "Baru",
+                price: 2390000,
+                retailPrice: 2899000,
+                marketPrice: 2850000,
+                rating: 5.0,
+                reviewCount: 86,
+                sizes: [40, 41, 42, 43],
+                seller: "RunCulture Store",
+                image: PHOTO_POOL.runningRed,
+                description: "Sepatu tempo dan race day dengan busa PWRRUN PB super ringan, pelat nilon bersayap, dan geometri SPEEDROLL yang mendorong langkah cepat.",
+                reviews: [{ author: "Rico Pelari", rating: 5, date: "1 minggu lalu", comment: "Dipakai tempo run pace langsung terdorong tanpa bikin betis kaku." }]
+            },
+            {
+                id: 'kv-205',
+                name: "On Running Cloudmonster 'Frost Surf'",
+                brand: "On Running",
+                category: "Running",
+                condition: "Baru",
+                price: 2490000,
+                retailPrice: 2999000,
+                marketPrice: 2950000,
+                rating: 4.9,
+                reviewCount: 158,
+                sizes: [39, 40, 41, 42, 43, 44],
+                seller: "SwissRun Jakarta",
+                image: PHOTO_POOL.runningMesh,
+                description: "Bantalan CloudTec terbesar dari merek Swiss On Running dipadukan Speedboard eksplosif untuk lari jarak jauh maupun gaya aktif seharian.",
+                reviews: [{ author: "Melisa Tan", rating: 5, date: "2 hari lalu", comment: "Bouncy banget dan desainnya keren dipakai traveling!" }]
+            },
+            {
+                id: 'kv-206',
+                name: "Mizuno Wave Rider 27 'Osaka White Red'",
+                brand: "Mizuno",
+                category: "Running",
+                condition: "Baru",
+                price: 1750000,
+                retailPrice: 2199000,
+                marketPrice: 2150000,
+                rating: 4.8,
+                reviewCount: 77,
+                sizes: [40, 41, 42, 43],
+                seller: "NipponRun ID",
+                image: PHOTO_POOL.runningRed,
+                description: "Teknologi pelat Mizuno Wave dan busa MIZUNO ENERZY memberikan keseimbangan sempurna antara bantalan empuk dan dorongan stabil.",
+                reviews: [{ author: "Agus Salim", rating: 5, date: "5 hari lalu", comment: "Awet ratusan kilometer, khas kualitas Mizuno Jepang." }]
+            },
+            {
+                id: 'kv-207',
+                name: "Altra Torin 7 'Zero Drop Wide Toebox'",
+                brand: "Altra",
+                category: "Running",
+                condition: "Baru",
+                price: 1950000,
+                retailPrice: 2399000,
+                marketPrice: 2350000,
+                rating: 4.8,
+                reviewCount: 62,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "NaturalStride ID",
+                image: PHOTO_POOL.runningMesh,
+                description: "Desain FootShape toe box lebar yang memberi ruang alami bagi jari kaki dan platform Zero Drop untuk postur lari sehat.",
+                reviews: [{ author: "Yudi Hartono", rating: 5, date: "6 hari lalu", comment: "Solusi terbaik buat pelari dengan tipe kaki lebar (wide feet)." }]
+            },
+            {
+                id: 'kv-208',
+                name: "Li-Ning Feidian 3 Challenger Carbon",
+                brand: "Li-Ning",
+                category: "Running",
+                condition: "Baru",
+                price: 1690000,
+                retailPrice: 2199000,
+                marketPrice: 2090000,
+                rating: 4.9,
+                reviewCount: 109,
+                sizes: [40, 41, 42, 43],
+                seller: "ProCarbon Athletics",
+                image: PHOTO_POOL.runningRed,
+                description: "Sepatu lari berpelat karbon dengan busa BOOM super ringan dan outsole GCR anti-slip bahkan di aspal basah.",
+                reviews: [{ author: "Bagas Prakoso", rating: 5, date: "3 hari lalu", comment: "Carbon racer terbaik di bawah 2 juta!" }]
+            },
+            {
+                id: 'kv-209',
+                name: "361 Degrees Flame 3.0 Carbon Plate",
+                brand: "361 Degrees",
+                category: "Running",
+                condition: "Baru",
+                price: 1550000,
+                retailPrice: 1999000,
+                marketPrice: 1890000,
+                rating: 4.8,
+                reviewCount: 83,
+                sizes: [40, 41, 42, 43],
+                seller: "ProCarbon Athletics",
+                image: PHOTO_POOL.runningBlue,
+                description: "Busa Qu!kflame CQT dan pelat serat karbon penuh Qu!kbone untuk efisiensi energi maksimal saat half-marathon maupun full-marathon.",
+                reviews: [{ author: "Tomi Kurniawan", rating: 5, date: "1 minggu lalu", comment: "Ringan dan responsif banget untuk race day." }]
+            },
+            {
+                id: 'kv-210',
+                name: "Topo Athletic Specter 'Cobalt White'",
+                brand: "Topo Athletic",
+                category: "Running",
+                condition: "Baru",
+                price: 2100000,
+                retailPrice: 2599000,
+                marketPrice: 2490000,
+                rating: 4.8,
+                reviewCount: 41,
+                sizes: [41, 42, 43],
+                seller: "NaturalStride ID",
+                image: PHOTO_POOL.runningBlue,
+                description: "Menggabungkan inti busa Pebax berdaya pantul tinggi dengan toe box anatomis yang nyaman untuk latihan jarak jauh.",
+                reviews: [{ author: "Eko Susanto", rating: 5, date: "2 minggu lalu", comment: "Midfoot lockdown-nya pas dan ujung kaki tetap lega." }]
+            },
+
+            // ================= CATEGORY 3: BASKETBALL (9 BRANDS) =================
+            {
+                id: 'kv-301',
+                name: "Nike LeBron XXI 'Volt Neon' Basketball",
+                brand: "Nike Basketball",
+                category: "Basketball",
+                condition: "Baru",
+                price: 2290000,
+                retailPrice: 2849000,
+                marketPrice: 2950000,
+                rating: 4.8,
+                reviewCount: 89,
+                sizes: [41, 42, 43, 44, 45],
+                seller: "HoopNation ID",
+                image: PHOTO_POOL.basketballNeon,
+                description: "Dirancang untuk eksplosivitas di lapangan basket dengan unit Air Zoom Turbo di bagian depan dan sistem kabel pengunci 360 derajat.",
+                reviews: [{ author: "Andre Basket", rating: 5, date: "6 hari lalu", comment: "Traksi lapangan indoor mantap, decitnya kencang dan stabil." }]
+            },
+            {
+                id: 'kv-302',
+                name: "Air Jordan 4 Retro 'Bred Reimagined'",
+                brand: "Jordan Basketball",
+                category: "Basketball",
+                condition: "Baru",
+                price: 3490000,
+                retailPrice: 3299000,
+                marketPrice: 4350000,
+                rating: 5.0,
+                reviewCount: 147,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "HypeVault Jakarta",
+                image: PHOTO_POOL.basketballRetro,
+                description: "Edisi ikonik Jordan 4 Bred dengan material full-grain leather premium warna hitam, abu-abu, dan merah menyala.",
+                reviews: [{ author: "Gilang Ramadhan", rating: 5, date: "4 hari lalu", comment: "Kualitas kulitnya jauh lebih awet dari versi nubuck lama!" }]
+            },
+            {
+                id: 'kv-303',
+                name: "Under Armour Curry 11 'Future Curry'",
+                brand: "Under Armour",
+                category: "Basketball",
+                condition: "Baru",
+                price: 2150000,
+                retailPrice: 2599000,
+                marketPrice: 2650000,
+                rating: 4.9,
+                reviewCount: 115,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "HoopNation ID",
+                image: PHOTO_POOL.basketballCourt,
+                description: "Sepatu signature Stephen Curry dengan teknologi UA Flow dual-density tanpa sol karet luar untuk grip instan tanpa selip.",
+                reviews: [{ author: "Steven Hoops", rating: 5, date: "3 hari lalu", comment: "Grip UA Flow-nya lengket banget di lapangan kayu!" }]
+            },
+            {
+                id: 'kv-304',
+                name: "Way of Wade 10 'Lavender / Sunrise'",
+                brand: "Way of Wade",
+                category: "Basketball",
+                condition: "Baru",
+                price: 2690000,
+                retailPrice: 3299000,
+                marketPrice: 3450000,
+                rating: 5.0,
+                reviewCount: 138,
+                sizes: [41, 42, 43, 44],
+                seller: "CourtSide Pro ID",
+                image: PHOTO_POOL.basketballNeon,
+                description: "Salah satu sepatu basket performa terbaik dunia dengan full-length BOOM cushioning dan pelat serat karbon penuh.",
+                reviews: [{ author: "Derrick Wijaya", rating: 5, date: "2 hari lalu", comment: "Bounce dan court feel-nya nomor 1 buat guard maupun forward!" }]
+            },
+            {
+                id: 'kv-305',
+                name: "Adidas AE 1 Anthony Edwards 'With Love'",
+                brand: "Adidas Basketball",
+                category: "Basketball",
+                condition: "Baru",
+                price: 1990000,
+                retailPrice: 2200000,
+                marketPrice: 2690000,
+                rating: 4.9,
+                reviewCount: 162,
+                sizes: [40, 41, 42, 43, 44, 45],
+                seller: "ThreeStripes Hub",
+                image: PHOTO_POOL.basketballCourt,
+                description: "Sepatu signature perdana Anthony Edwards dengan struktur TPU honeycomb futuristik serta kombinasi bantalan JET BOOST dan Lightstrike.",
+                reviews: [{ author: "Rama Putra", rating: 5, date: "4 hari lalu", comment: "Lockdown tumitnya juara, desainnya juga keren dipakai kasual." }]
+            },
+            {
+                id: 'kv-306',
+                name: "Puma MB.03 LaMelo Ball 'Toxic Volt'",
+                brand: "Puma Hoops",
+                category: "Basketball",
+                condition: "Baru",
+                price: 1850000,
+                retailPrice: 2299000,
+                marketPrice: 2250000,
+                rating: 4.8,
+                reviewCount: 91,
+                sizes: [41, 42, 43, 44],
+                seller: "HoopNation ID",
+                image: PHOTO_POOL.basketballNeon,
+                description: "Sepatu ketiga LaMelo Ball dengan busa NITRO Infused yang ringan dan pola cakar mencolok untuk permainan cepat.",
+                reviews: [{ author: "Fikri Hidayat", rating: 5, date: "1 minggu lalu", comment: "Warna mencolok di lapangan dan bantalan empuk saat mendarat." }]
+            },
+            {
+                id: 'kv-307',
+                name: "New Balance TWO WXY v4 'Gamer Tag'",
+                brand: "New Balance Hoops",
+                category: "Basketball",
+                condition: "Baru",
+                price: 1790000,
+                retailPrice: 2199000,
+                marketPrice: 2150000,
+                rating: 4.8,
+                reviewCount: 67,
+                sizes: [41, 42, 43, 44],
+                seller: "NBLab Indonesia",
+                image: PHOTO_POOL.basketballCourt,
+                description: "Menggabungkan busa FuelCell di bagian depan dan Fresh Foam X di tumit untuk pemain two-way yang aktif menyerang dan bertahan.",
+                reviews: [{ author: "Jason Tan", rating: 5, date: "5 hari lalu", comment: "Stabilitas lateralnya sangat aman buat gerakan crossover." }]
+            },
+            {
+                id: 'kv-308',
+                name: "Peak Taichi Flash 4.0 Pro Basketball",
+                brand: "Peak",
+                category: "Basketball",
+                condition: "Baru",
+                price: 1390000,
+                retailPrice: 1799000,
+                marketPrice: 1750000,
+                rating: 4.8,
+                reviewCount: 79,
+                sizes: [41, 42, 43, 44, 45],
+                seller: "CourtSide Pro ID",
+                image: PHOTO_POOL.basketballRetro,
+                description: "Midsole cerdas P-Motive & Taichi yang beradaptasi secara dinamis—lembut saat berjalan dan responsif saat melompat.",
+                reviews: [{ author: "Wahyu Nugraha", rating: 5, date: "6 hari lalu", comment: "Outsole tebal tahan banting untuk lapangan outdoor semen maupun indoor." }]
+            },
+            {
+                id: 'kv-309',
+                name: "Rigorer AR1 Austin Reaves 'Ice Cream'",
+                brand: "Rigorer",
+                category: "Basketball",
+                condition: "Baru",
+                price: 1590000,
+                retailPrice: 1999000,
+                marketPrice: 2050000,
+                rating: 4.9,
+                reviewCount: 84,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "CourtSide Pro ID",
+                image: PHOTO_POOL.basketballCourt,
+                description: "Sepatu signature Austin Reaves dengan sistem tali cocoon anti-selip, pelat TPU anti-torsi, dan busa Showtime yang responsif.",
+                reviews: [{ author: "Kevin Hartanto", rating: 5, date: "3 hari lalu", comment: "Value for money terbaik di kelas sepatu signature!" }]
+            },
+
+            // ================= CATEGORY 4: SKATEBOARDING (9 BRANDS) =================
+            {
+                id: 'kv-401',
+                name: "Vans Old Skool Classic 'Black White Skate'",
+                brand: "Vans",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 849000,
+                retailPrice: 1099000,
+                marketPrice: 1050000,
+                rating: 4.8,
+                reviewCount: 310,
+                sizes: [38, 39, 40, 41, 42, 43, 44],
+                seller: "BoardSide Skate",
+                image: PHOTO_POOL.skateVans,
+                description: "Sepatu skate klasik dengan garis samping Sidestripe ikonik, kombinasi kanvas dan suede tahan gesekan grip tape, serta waffle outsole.",
+                reviews: [{ author: "Raka Skater", rating: 5, date: "1 minggu lalu", comment: "Boardfeel dapet banget, awet buat latihan ollie dan kickflip." }]
+            },
+            {
+                id: 'kv-402',
+                name: "Nike SB Dunk Low Pro 'Suede Gum'",
+                brand: "Nike SB",
+                category: "Skateboarding",
+                condition: "Pre-loved",
+                price: 1620000,
+                retailPrice: 1729000,
+                marketPrice: 2250000,
+                rating: 4.8,
+                reviewCount: 68,
+                sizes: [40, 41, 42],
+                seller: "TitipJual_SB",
+                image: PHOTO_POOL.skateSuede,
+                description: "Kondisi 94% mulus, lidah sepatu tebal (fat tongue) khas Nike SB dengan unit Zoom Air di tumit untuk meredam benturan.",
+                reviews: [{ author: "Dodi Kurniawan", rating: 5, date: "6 hari lalu", comment: "Suede masih halus, box lengkap beserta tali cadangan." }]
+            },
+            {
+                id: 'kv-403',
+                name: "Converse CONS One Star Pro Suede 'Black'",
+                brand: "Converse",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 980000,
+                retailPrice: 1299000,
+                marketPrice: 1250000,
+                rating: 4.9,
+                reviewCount: 112,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "BoardSide Skate",
+                image: PHOTO_POOL.skateCanvas,
+                description: "Dilengkapi upper suede berlapis karet tahan abrasi, insole busa CX untuk peredam benturan, dan outsole karet traksi CONS.",
+                reviews: [{ author: "Dimas Skate", rating: 5, date: "4 hari lalu", comment: "Fleksibel banget di papan dan insole CX-nya empuk!" }]
+            },
+            {
+                id: 'kv-404',
+                name: "DC Shoes Court Graffik Puffy 'Black White'",
+                brand: "DC Shoes",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 890000,
+                retailPrice: 1199000,
+                marketPrice: 1150000,
+                rating: 4.8,
+                reviewCount: 145,
+                sizes: [39, 40, 41, 42, 43, 44],
+                seller: "90sSkateHub",
+                image: PHOTO_POOL.skateVans,
+                description: "Siluet chunky skate klasik era 2000-an dengan lidah dan kerah empuk berlapis busa serta outsole Pill Pattern ikonik dari DC.",
+                reviews: [{ author: "Alvin Putra", rating: 5, date: "3 hari lalu", comment: "Gaya Y2K skate-nya dapet banget dan super nyaman." }]
+            },
+            {
+                id: 'kv-405',
+                name: "Etnies Marana Michelin 'Dark Grey Gum'",
+                brand: "Etnies",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 1090000,
+                retailPrice: 1450000,
+                marketPrice: 1390000,
+                rating: 4.9,
+                reviewCount: 73,
+                sizes: [40, 41, 42, 43],
+                seller: "BoardSide Skate",
+                image: PHOTO_POOL.skateSuede,
+                description: "Menggunakan senyawa karet ban Michelin pada outsole yang 3x lebih tahan aus serta toe cap karet injeksi anti-jebol.",
+                reviews: [{ author: "Rian Ollie", rating: 5, date: "5 hari lalu", comment: "Sol Michelin-nya beneran susah botak meski dipakai skate tiap hari." }]
+            },
+            {
+                id: 'kv-406',
+                name: "Emerica Dickson Pro Model 'Black Gold'",
+                brand: "Emerica",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 950000,
+                retailPrice: 1299000,
+                marketPrice: 1200000,
+                rating: 4.8,
+                reviewCount: 54,
+                sizes: [40, 41, 42, 43],
+                seller: "BoardSide Skate",
+                image: PHOTO_POOL.skateVans,
+                description: "Model pro Jon Dickson dengan teknologi Flick Shield di bawah suede, konstruksi vulkanisir ganda, dan insole G6 anti-impact.",
+                reviews: [{ author: "Fajar Skate", rating: 5, date: "1 minggu lalu", comment: "Flick-nya presisi banget dan tumit aman saat turun tangga." }]
+            },
+            {
+                id: 'kv-407',
+                name: "éS Footwear Accel OG 'Brown Gum Classic'",
+                brand: "éS Footwear",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 1190000,
+                retailPrice: 1550000,
+                marketPrice: 1490000,
+                rating: 4.9,
+                reviewCount: 66,
+                sizes: [40, 41, 42, 43],
+                seller: "90sSkateHub",
+                image: PHOTO_POOL.skateSuede,
+                description: "Sepatu legendaris yang dikenakan para legenda street skate dunia dengan suede premium dan cupsole 400 NBS yang kokoh.",
+                reviews: [{ author: "Budi Santoso", rating: 5, date: "2 minggu lalu", comment: "Klasik sejati, kualitas suede-nya tebal dan mewah." }]
+            },
+            {
+                id: 'kv-408',
+                name: "Lakai Cambridge Suede 'White Navy Gum'",
+                brand: "Lakai",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 920000,
+                retailPrice: 1250000,
+                marketPrice: 1190000,
+                rating: 4.8,
+                reviewCount: 59,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "BoardSide Skate",
+                image: PHOTO_POOL.skateCanvas,
+                description: "Perpaduan material suede, mesh, dan kulit sintetis berpori dengan outsole PARA-MOUNT dan insole DELUX-LITE.",
+                reviews: [{ author: "Gerry Pratama", rating: 5, date: "6 hari lalu", comment: "Adem di kaki dan boardfeel-nya langsung terasa tanpa break-in." }]
+            },
+            {
+                id: 'kv-409',
+                name: "New Balance Numeric 480 'White Green'",
+                brand: "New Balance Numeric",
+                category: "Skateboarding",
+                condition: "Baru",
+                price: 1390000,
+                retailPrice: 1699000,
+                marketPrice: 1750000,
+                rating: 4.9,
+                reviewCount: 81,
+                sizes: [40, 41, 42, 43],
+                seller: "NBLab Indonesia",
+                image: PHOTO_POOL.sneakerWhite,
+                description: "Terinspirasi sepatu basket klasik BB480 yang dirombak untuk skateboarding dengan bantalan FuelCell dan tumit diperkuat.",
+                reviews: [{ author: "Taufik Hidayat", rating: 5, date: "3 hari lalu", comment: "Bisa dipakai main skate sekaligus keren buat jalan santai." }]
+            },
+
+            // ================= CATEGORY 5: BOOTS & FORMAL (9 BRANDS) =================
+            {
+                id: 'kv-501',
+                name: "Dr. Martens 1461 Smooth Leather Derby",
+                brand: "Dr. Martens",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 2250000,
+                retailPrice: 2799000,
+                marketPrice: 2750000,
+                rating: 4.9,
+                reviewCount: 119,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "BootCraft Studio",
+                image: PHOTO_POOL.bootsDerby,
+                description: "Sepatu kulit formal-kasual 3-eyelet ikonik dengan jahitan kuning Goodyear welt yang tangguh dan sol AirWair tahan minyak.",
+                reviews: [{ author: "Reza Mahendra", rating: 5, date: "2 minggu lalu", comment: "Kulit asli kokoh, cocok buat ngantor maupun acara semi-formal." }]
+            },
+            {
+                id: 'kv-502',
+                name: "Timberland 6-Inch Premium Waterproof Boots",
+                brand: "Timberland",
+                category: "Boots/Formal",
+                condition: "Pre-loved",
+                price: 1950000,
+                retailPrice: 3199000,
+                marketPrice: 2850000,
+                rating: 4.8,
+                reviewCount: 92,
+                sizes: [41, 42, 43, 44],
+                seller: "VintageKicks_BDG",
+                image: PHOTO_POOL.bootsWork,
+                description: "Boots kulit nubuck tahan air legendaris warna Wheat. Titip jual kondisi 93% sangat terawat, sol masih tebal.",
+                reviews: [{ author: "Bayu Setiawan", rating: 5, date: "4 hari lalu", comment: "Gagah banget dipakai riding maupun harian, hemat 900rb!" }]
+            },
+            {
+                id: 'kv-503',
+                name: "Red Wing Heritage Iron Ranger 8111 'Amber'",
+                brand: "Red Wing",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 4650000,
+                retailPrice: 5899000,
+                marketPrice: 5650000,
+                rating: 5.0,
+                reviewCount: 74,
+                sizes: [40, 41, 42, 43],
+                seller: "HeritageLeather ID",
+                image: PHOTO_POOL.bootsWork,
+                description: "Dibuat di Amerika Serikat menggunakan kulit Amber Harness full-grain, konstruksi Goodyear welt, dan outsole Vibram 430 Mini-Lug.",
+                reviews: [{ author: "Hendra Wijaya", rating: 5, date: "1 minggu lalu", comment: "Investasi sepatu seumur hidup, patina kulitnya makin cakep seiring waktu." }]
+            },
+            {
+                id: 'kv-504',
+                name: "Clarks Originals Wallabee 'Maple Suede'",
+                brand: "Clarks",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 1890000,
+                retailPrice: 2499000,
+                marketPrice: 2390000,
+                rating: 4.9,
+                reviewCount: 128,
+                sizes: [39, 40, 41, 42, 43],
+                seller: "BootCraft Studio",
+                image: PHOTO_POOL.bootsChelsea,
+                description: "Siluet moccasin ikonik Inggris berbahan kulit suede Charles F. Stead dengan sol karet crepe alami yang khas dan empuk.",
+                reviews: [{ author: "Dimas Anggara", rating: 5, date: "3 hari lalu", comment: "Nyaman banget di kaki, desain klasik yang selalu relevan." }]
+            },
+            {
+                id: 'kv-505',
+                name: "Blundstone Classic 550 Chelsea Boots 'Walnut'",
+                brand: "Blundstone",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 2590000,
+                retailPrice: 3250000,
+                marketPrice: 3150000,
+                rating: 4.9,
+                reviewCount: 83,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "AussieBoots ID",
+                image: PHOTO_POOL.bootsChelsea,
+                description: "Chelsea boots tangguh asal Tasmania Australia dengan kulit tahan air dan teknologi peredam kejut XRD pada bagian tumit.",
+                reviews: [{ author: "Riko Pratama", rating: 5, date: "5 hari lalu", comment: "Praktis tinggal slip-on, tahan hujan dan super ringan." }]
+            },
+            {
+                id: 'kv-506',
+                name: "Cole Haan GrandPro Chelsea Leather Boots",
+                brand: "Cole Haan",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 2150000,
+                retailPrice: 2999000,
+                marketPrice: 2790000,
+                rating: 4.9,
+                reviewCount: 61,
+                sizes: [40, 41, 42, 43],
+                seller: "GentlemenFootwear",
+                image: PHOTO_POOL.bootsChelsea,
+                description: "Sepatu boots kulit coklat tua bergaya Chelsea klasik yang ringkas tanpa tali, memadukan tampilan eksekutif dengan sol ringan.",
+                reviews: [{ author: "Hendri Gunawan", rating: 5, date: "1 minggu lalu", comment: "Ringan banget buat sepatu kulit formal, nggak bikin kaki lecet." }]
+            },
+            {
+                id: 'kv-507',
+                name: "Thursday Boot Co. Captain 'Brandy Leather'",
+                brand: "Thursday Boot Co.",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 2790000,
+                retailPrice: 3499000,
+                marketPrice: 3390000,
+                rating: 4.9,
+                reviewCount: 69,
+                sizes: [40, 41, 42, 43],
+                seller: "HeritageLeather ID",
+                image: PHOTO_POOL.bootsDerby,
+                description: "Cap-toe boots serbaguna dengan konstruksi Goodyear welt, lapisan kulit sarung tangan penuh, dan insole Poron anti-lelah.",
+                reviews: [{ author: "Arif Budiman", rating: 5, date: "6 hari lalu", comment: "Proporsi rampingnya pas dipakai dengan celana chino maupun jeans." }]
+            },
+            {
+                id: 'kv-508',
+                name: "Solovair Gibson 3-Eye Shoe 'Hi-Shine Black'",
+                brand: "Solovair",
+                category: "Boots/Formal",
+                condition: "Baru",
+                price: 2850000,
+                retailPrice: 3599000,
+                marketPrice: 3450000,
+                rating: 5.0,
+                reviewCount: 47,
+                sizes: [40, 41, 42, 43],
+                seller: "BootCraft Studio",
+                image: PHOTO_POOL.bootsDerby,
+                description: "Buatan tangan di Northamptonshire Inggris oleh pabrik asli pembuat boots klasik Inggris, lengkap dengan sol Soft Suspension.",
+                reviews: [{ author: "Bramantyo", rating: 5, date: "2 minggu lalu", comment: "Finishing kulit dan jahitannya jauh di atas rata-rata!" }]
+            },
+            {
+                id: 'kv-509',
+                name: "Allen Edmonds Park Avenue Cap-Toe Oxford",
+                brand: "Allen Edmonds",
+                category: "Boots/Formal",
+                condition: "Pre-loved",
+                price: 3250000,
+                retailPrice: 6400000,
+                marketPrice: 5400000,
+                rating: 5.0,
+                reviewCount: 35,
+                sizes: [41, 42, 43],
+                seller: "GentlemenFootwear",
+                image: PHOTO_POOL.bootsDerby,
+                description: "Sepatu dress Oxford klasik berbahan kulit anak sapi premium dengan konstruksi 360-degree Goodyear welt. Kondisi 95% lengkap cedar shoe tree.",
+                reviews: [{ author: "Irwan Setiawan", rating: 5, date: "1 minggu lalu", comment: "Standar emas sepatu formal bisnis, mulus terawat." }]
+            },
+
+            // ================= CATEGORY 6: OUTDOOR & TRAIL (8 BRANDS) =================
+            {
+                id: 'kv-601',
+                name: "Salomon XT-6 Gore-Tex 'Black Ebony Trail'",
+                brand: "Salomon",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 2890000,
+                retailPrice: 3499000,
+                marketPrice: 3650000,
+                rating: 5.0,
+                reviewCount: 154,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "TrailPeak Gear",
+                image: PHOTO_POOL.trailTech,
+                description: "Sepatu trail teknis dengan membran anti-air GORE-TEX, sistem tali cepat Quicklace, dan outsole Contagrip segala medan.",
+                reviews: [{ author: "Arif Pendaki", rating: 5, date: "2 hari lalu", comment: "Dipakai trekking hujan-hujanan kaki tetap kering 100%!" }]
+            },
+            {
+                id: 'kv-602',
+                name: "Merrell Moab 3 Waterproof Hiking 'Walnut'",
+                brand: "Merrell",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 1690000,
+                retailPrice: 2199000,
+                marketPrice: 2100000,
+                rating: 4.9,
+                reviewCount: 142,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "OutdoorBase ID",
+                image: PHOTO_POOL.trailHike,
+                description: "Sepatu hiking terlaris di dunia dengan kulit pigskin tahan air, insole Kinetic Fit ADVANCED, dan sol Vibram TC5+ anti-selip.",
+                reviews: [{ author: "Galih Gunung", rating: 5, date: "3 hari lalu", comment: "Langsung nyaman dipakai naik gunung tanpa perlu break-in lama." }]
+            },
+            {
+                id: 'kv-603',
+                name: "La Sportiva Bushido III Trail Running",
+                brand: "La Sportiva",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 2390000,
+                retailPrice: 2899000,
+                marketPrice: 2850000,
+                rating: 4.9,
+                reviewCount: 68,
+                sizes: [40, 41, 42, 43],
+                seller: "TrailPeak Gear",
+                image: PHOTO_POOL.trailTech,
+                description: "Sepatu skyrunning asal pegunungan Dolomites Italia dengan rangka STB Control yang memeluk kaki stabil di jalur berbatu teknis.",
+                reviews: [{ author: "Rendra Trail", rating: 5, date: "5 hari lalu", comment: "Presisi pijakan di batu licin dan akar pohon luar biasa." }]
+            },
+            {
+                id: 'kv-604',
+                name: "Scarpa Mojito GTX Approach 'Shark Grey'",
+                brand: "Scarpa",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 2550000,
+                retailPrice: 3199000,
+                marketPrice: 3090000,
+                rating: 4.9,
+                reviewCount: 74,
+                sizes: [40, 41, 42, 43],
+                seller: "AlpineGear Jakarta",
+                image: PHOTO_POOL.trailHike,
+                description: "Sepatu approach ikonik Italia dengan sistem tali hingga ujung jari kaki, kulit suede tahan air GORE-TEX, dan sol Vibram Spyder.",
+                reviews: [{ author: "Deni Kusuma", rating: 5, date: "1 minggu lalu", comment: "Enak buat hiking ringan maupun traveling ke daerah dingin." }]
+            },
+            {
+                id: 'kv-605',
+                name: "Columbia Crestwood Waterproof Trail Shoe",
+                brand: "Columbia",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 1350000,
+                retailPrice: 1799000,
+                marketPrice: 1720000,
+                rating: 4.8,
+                reviewCount: 116,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "OutdoorBase ID",
+                image: PHOTO_POOL.trailHike,
+                description: "Dilengkapi konstruksi bootie Omni-Tech kedap air, midsole ringan Techlite berdaya pantul tinggi, dan karet traksi Omni-Grip.",
+                reviews: [{ author: "Satria Wibowo", rating: 5, date: "4 hari lalu", comment: "Ringan seperti sepatu lari tapi tangguh di jalur tanah basah." }]
+            },
+            {
+                id: 'kv-606',
+                name: "The North Face Vectiv Exploris 2 Futurelight",
+                brand: "The North Face",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 2290000,
+                retailPrice: 2899000,
+                marketPrice: 2790000,
+                rating: 4.8,
+                reviewCount: 89,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "TrailPeak Gear",
+                image: PHOTO_POOL.trailTech,
+                description: "Membran breathable-waterproof FUTURELIGHT dipadukan pelat propulsi VECTIV 3D TPU dan lug Surface CTRL 4mm.",
+                reviews: [{ author: "Bagus Pratama", rating: 5, date: "6 hari lalu", comment: "Kaki tetap adem tidak gerah meski trekking seharian." }]
+            },
+            {
+                id: 'kv-607',
+                name: "Arc'teryx Norvan LD 3 Gore-Tex 'Black'",
+                brand: "Arc'teryx",
+                category: "Outdoor/Trail",
+                condition: "Baru",
+                price: 3150000,
+                retailPrice: 3899000,
+                marketPrice: 3790000,
+                rating: 5.0,
+                reviewCount: 63,
+                sizes: [40, 41, 42, 43],
+                seller: "AlpineGear Jakarta",
+                image: PHOTO_POOL.trailTech,
+                description: "Dirancang untuk lari lintas alam jarak jauh di medan teknis dengan perlindungan GORE-TEX dan outsole Vibram Megagrip Litebase.",
+                reviews: [{ author: "Kevin Tan", rating: 5, date: "3 hari lalu", comment: "Build quality kelas atas, super ringan untuk ukuran sepatu GTX." }]
+            },
+            {
+                id: 'kv-608',
+                name: "Lowa Renegade GTX Mid Hiking Boots 'Sepia'",
+                brand: "Lowa",
+                category: "Outdoor/Trail",
+                condition: "Pre-loved",
+                price: 2450000,
+                retailPrice: 3999000,
+                marketPrice: 3650000,
+                rating: 4.9,
+                reviewCount: 51,
+                sizes: [41, 42, 43],
+                seller: "TitipJual_Hiker",
+                image: PHOTO_POOL.trailHike,
+                description: "Boots pendakian buatan Eropa dengan kulit nubuck premium, lapisan GORE-TEX, dan rangka stabilitas MONOWRAP. Kondisi 94% mulus.",
+                reviews: [{ author: "Hadi Wijaya", rating: 5, date: "1 minggu lalu", comment: "Support pergelangan kakinya mantap banget untuk bawa carrier berat." }]
+            },
+
+            // ================= CATEGORY 7: SLIDES & SANDALS (8 BRANDS) =================
+            {
+                id: 'kv-701',
+                name: "Adidas Yeezy Slide 'Bone / Pure Cream'",
+                brand: "Yeezy",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 1450000,
+                retailPrice: 1200000,
+                marketPrice: 1950000,
+                rating: 4.9,
+                reviewCount: 205,
+                sizes: [39, 40, 41, 42, 43, 44],
+                seller: "HypeVault Jakarta",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Sandal slip-on minimalis berbahan busa EVA ringan yang super empuk dengan pola gerigi outsole khas.",
+                reviews: [{ author: "Clarissa Tan", rating: 5, date: "1 hari lalu", comment: "Empuk banget serasa injak awan! Disarankan upsize 1 nomor." }]
+            },
+            {
+                id: 'kv-702',
+                name: "Birkenstock Boston Soft Footbed 'Taupe Suede'",
+                brand: "Birkenstock",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 2190000,
+                retailPrice: 2599000,
+                marketPrice: 2790000,
+                rating: 4.9,
+                reviewCount: 176,
+                sizes: [38, 39, 40, 41, 42, 43],
+                seller: "ComfortWalk ID",
+                image: PHOTO_POOL.sneakerLuxury,
+                description: "Clog sandal ikonik berbahan kulit suede lembut dengan alas kaki anatomis gabus-lateks yang menyesuaikan bentuk telapak kaki.",
+                reviews: [{ author: "Nanda Kusuma", rating: 5, date: "3 hari lalu", comment: "Warna Taupe paling susah dicari, ready di sini di bawah harga pasar!" }]
+            },
+            {
+                id: 'kv-703',
+                name: "Crocs Echo Clog 'Atmosphere Grey'",
+                brand: "Crocs",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 950000,
+                retailPrice: 1299000,
+                marketPrice: 1250000,
+                rating: 4.8,
+                reviewCount: 184,
+                sizes: [38, 39, 40, 41, 42, 43, 44],
+                seller: "ComfortWalk ID",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Desain streetwear sculptural dengan konstruksi Croslite ultra-ringan dan footbed LiteRide ganda yang ekstra empuk.",
+                reviews: [{ author: "Robby Wijaya", rating: 5, date: "2 hari lalu", comment: "Jauh lebih empuk daripada Classic Clog biasa dan bentuknya keren." }]
+            },
+            {
+                id: 'kv-704',
+                name: "OOFOS OOahh Recovery Slide 'Black'",
+                brand: "OOFOS",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 890000,
+                retailPrice: 1150000,
+                marketPrice: 1120000,
+                rating: 5.0,
+                reviewCount: 129,
+                sizes: [39, 40, 41, 42, 43, 44],
+                seller: "RunCulture Store",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Sandal pemulihan pasca-olahraga dengan teknologi busa OOfoam yang menyerap 37% lebih banyak benturan dibanding busa biasa.",
+                reviews: [{ author: "Coach Hendra", rating: 5, date: "4 hari lalu", comment: "Wajib punya setelah long run atau marathon, telapak kaki langsung rileks." }]
+            },
+            {
+                id: 'kv-705',
+                name: "Teva Hurricane XLT2 'Vista Black Olive'",
+                brand: "Teva",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 920000,
+                retailPrice: 1250000,
+                marketPrice: 1190000,
+                rating: 4.8,
+                reviewCount: 97,
+                sizes: [39, 40, 41, 42, 43, 44],
+                seller: "OutdoorBase ID",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Sandal outdoor bertali poliester daur ulang REPREVE yang cepat kering dengan sol karet Durabrasion untuk medan basah maupun santai.",
+                reviews: [{ author: "Fajar Alam", rating: 5, date: "5 hari lalu", comment: "Dipakai main ke air terjun maupun jalan kota sama-sama nyaman." }]
+            },
+            {
+                id: 'kv-706',
+                name: "Chaco Z/1 Classic Adjustable Sandal 'Black'",
+                brand: "Chaco",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 1290000,
+                retailPrice: 1699000,
+                marketPrice: 1590000,
+                rating: 4.9,
+                reviewCount: 72,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "OutdoorBase ID",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Sandal petualang dengan sistem tali webbing menyeluruh yang dapat disesuaikan sempurna dan footbed LUVSEAT bersertifikat podiatris.",
+                reviews: [{ author: "Bima Sakti", rating: 5, date: "1 minggu lalu", comment: "Arch support-nya juara, tidak bikin telapak kaki cepat pegal." }]
+            },
+            {
+                id: 'kv-707',
+                name: "Suicoke MOTO-Cab Nylon Straps 'Black'",
+                brand: "Suicoke",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 2290000,
+                retailPrice: 2999000,
+                marketPrice: 2890000,
+                rating: 4.9,
+                reviewCount: 58,
+                sizes: [40, 41, 42, 43],
+                seller: "NipponKicks ID",
+                image: PHOTO_POOL.slidesSandals,
+                description: "Sandal desainer asal Jepang dengan dua tali velcro nilon premium, footbed antibakteri EVA ergonomis, dan outsole Vibram Morflex.",
+                reviews: [{ author: "Reza Tan", rating: 5, date: "6 hari lalu", comment: "Detail dan kualitas materialnya terasa sangat premium." }]
+            },
+            {
+                id: 'kv-708',
+                name: "Keen Newport H2 Water Sandal 'Bison'",
+                brand: "Keen",
+                category: "Slides/Sandals",
+                condition: "Baru",
+                price: 1490000,
+                retailPrice: 1899000,
+                marketPrice: 1850000,
+                rating: 4.9,
+                reviewCount: 104,
+                sizes: [40, 41, 42, 43, 44],
+                seller: "OutdoorBase ID",
+                image: PHOTO_POOL.trailHike,
+                description: "Sandal hybrid dengan pelindung jari kaki karet khas KEEN, tali bungee quick-draw, dan sol siped anti-licin di bebatuan basah.",
+                reviews: [{ author: "Yudi Hartono", rating: 5, date: "3 hari lalu", comment: "Aman melindungi ujung jari saat trekking sungai maupun touring." }]
+            }
+        ];
+
+        // 2. APPLICATION STATE & LOCALSTORAGE KEYS (v3 for 64-brand expanded catalog)
+        const STORAGE_KEYS = {
+            PRODUCTS: 'kickvault_products_v3',
+            CART: 'kickvault_cart_v3',
+            WISHLIST: 'kickvault_wishlist_v3'
+        };
+
+        let products = [];
+        let cart = [];
+        let wishlist = [];
+
+        // Active Filter States
+        let filterState = {
+            search: '',
+            category: 'Semua',
+            brand: 'Semua',
+            condition: 'Semua',
+            sort: 'featured',
+            wishlistOnly: false
+        };
+
+        // Modal & Promo States
+        let currentModalProductId = null;
+        let selectedModalSize = null;
+        let promoApplied = false;
+
+        // 3. INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStateFromStorage();
+            populateBrandControls();
+            renderProducts();
+            updateCartUI();
+            updateWishlistBadge();
+        });
+
+        function loadStateFromStorage() {
+            try {
+                const savedProducts = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+                products = savedProducts ? JSON.parse(savedProducts) : [...INITIAL_PRODUCTS];
+                if (!savedProducts) {
+                    localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+                }
+
+                const savedCart = localStorage.getItem(STORAGE_KEYS.CART);
+                cart = savedCart ? JSON.parse(savedCart) : [];
+
+                const savedWishlist = localStorage.getItem(STORAGE_KEYS.WISHLIST);
+                wishlist = savedWishlist ? JSON.parse(savedWishlist) : [];
+            } catch (e) {
+                console.error("Gagal memuat data localStorage:", e);
+                products = [...INITIAL_PRODUCTS];
+                cart = [];
+                wishlist = [];
+            }
+        }
+
+        function saveProductsToStorage() {
+            localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+        }
+
+        function saveCartToStorage() {
+            localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(cart));
+        }
+
+        function saveWishlistToStorage() {
+            localStorage.setItem(STORAGE_KEYS.WISHLIST, JSON.stringify(wishlist));
+        }
+
+        function resetDemoData() {
+            localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
+            localStorage.removeItem(STORAGE_KEYS.CART);
+            localStorage.removeItem(STORAGE_KEYS.WISHLIST);
+            promoApplied = false;
+            loadStateFromStorage();
+            resetAllFilters();
+            updateCartUI();
+            updateWishlistBadge();
+            showToast('Data katalog demo berhasil dikembalikan ke awal!', 'success');
+        }
+
+        // 4. FORMATTING & CALCULATION HELPERS
+        function formatRupiah(num) {
+            return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+        }
+
+        function calculateMarketDiscount(price, marketPrice) {
+            if (!marketPrice || marketPrice <= price) return 0;
+            return Math.round(((marketPrice - price) / marketPrice) * 100);
+        }
+
+        // Fallback SVG data URI if Unsplash image fails to load
+        const FALLBACK_SHOE_SVG = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23f1f5f9'/%3E%3Cpath d='M140 370c30-60 95-95 165-80l135 30c25 6 40 28 35 52l-8 38H135l5-40z' fill='%23cbd5e1'/%3E%3Cpath d='M135 410h332v24c0 9-7 16-16 16H151c-9 0-16-7-16-16v-24z' fill='%230f172a'/%3E%3Ctext x='300' y='210' font-family='sans-serif' font-size='22' font-weight='bold' fill='%2364748b' text-anchor='middle'%3EKICKVAULT SNEAKER%3C/text%3E%3C/svg%3E";
+
+        // 5. FILTERING, SORTING & RENDERING CATALOG
+        function populateBrandControls() {
+            // Compute unique brands & counts (optionally scoped to current category for the quick strip)
+            const allBrandsMap = {};
+            products.forEach(p => {
+                allBrandsMap[p.brand] = (allBrandsMap[p.brand] || 0) + 1;
+            });
+            const allSortedBrands = Object.keys(allBrandsMap).sort((a, b) => a.localeCompare(b));
+
+            // 1) Update Dropdown Select
+            const brandSelect = document.getElementById('brandSelect');
+            const currentVal = filterState.brand;
+            brandSelect.innerHTML = `<option value="Semua">Semua Brand (${allSortedBrands.length})</option>` +
+                allSortedBrands.map(brand => `<option value="${brand}">${brand} (${allBrandsMap[brand]})</option>`).join('');
+            brandSelect.value = allSortedBrands.includes(currentVal) ? currentVal : 'Semua';
+
+            // 2) Update Datalist in Sell Modal
+            const datalist = document.getElementById('sellBrandDatalist');
+            if (datalist) {
+                datalist.innerHTML = allSortedBrands.map(b => `<option value="${b}">`).join('');
+            }
+
+            // 3) Update Interactive Horizontal Brand Strip (filtered by active category if any)
+            const scopedProducts = filterState.category === 'Semua'
+                ? products
+                : products.filter(p => p.category === filterState.category);
+
+            const scopedBrandsMap = {};
+            scopedProducts.forEach(p => {
+                scopedBrandsMap[p.brand] = (scopedBrandsMap[p.brand] || 0) + 1;
+            });
+            const stripBrands = Object.keys(scopedBrandsMap).sort((a, b) => a.localeCompare(b));
+
+            const stripTitle = document.getElementById('brandStripTitle');
+            const countBadge = document.getElementById('brandCountBadge');
+            if (stripTitle && countBadge) {
+                stripTitle.textContent = filterState.category === 'Semua'
+                    ? `Jelajahi ${stripBrands.length} Brand Resmi`
+                    : `Brand di Kategori ${filterState.category}`;
+                countBadge.textContent = `${stripBrands.length} Brand`;
+            }
+
+            const stripContainer = document.getElementById('brandStripContainer');
+            if (stripContainer) {
+                const allBtnActive = filterState.brand === 'Semua';
+                let pillsHtml = `
+                    <button onclick="handleBrandFilter('Semua')" class="shrink-0 px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${allBtnActive ? 'bg-emerald-600 text-white border-emerald-600 shadow-2xs' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+                        Semua
+                    </button>
+                `;
+                pillsHtml += stripBrands.map(brand => {
+                    const isSelected = filterState.brand === brand;
+                    return `
+                        <button onclick="handleBrandFilter('${brand.replace(/'/g, "\\'")}')" class="shrink-0 px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${isSelected ? 'bg-dark-900 text-white border-dark-900 shadow-2xs' : 'bg-white text-slate-700 border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/50'}">
+                            ${brand} <span class="text-[10px] opacity-70">(${scopedBrandsMap[brand]})</span>
+                        </button>
+                    `;
+                }).join('');
+                stripContainer.innerHTML = pillsHtml;
+            }
+        }
+
+        function getFilteredProducts() {
+            let result = products.filter(item => {
+                // Search query check
+                if (filterState.search) {
+                    const q = filterState.search.toLowerCase();
+                    const matchName = item.name.toLowerCase().includes(q);
+                    const matchBrand = item.brand.toLowerCase().includes(q);
+                    const matchCat = item.category.toLowerCase().includes(q);
+                    const matchSeller = item.seller.toLowerCase().includes(q);
+                    if (!matchName && !matchBrand && !matchCat && !matchSeller) return false;
+                }
+
+                // Category check
+                if (filterState.category !== 'Semua' && item.category !== filterState.category) {
+                    return false;
+                }
+
+                // Brand check
+                if (filterState.brand !== 'Semua' && item.brand !== filterState.brand) {
+                    return false;
+                }
+
+                // Condition check
+                if (filterState.condition !== 'Semua' && item.condition !== filterState.condition) {
+                    return false;
+                }
+
+                // Wishlist filter check
+                if (filterState.wishlistOnly && !wishlist.includes(item.id)) {
+                    return false;
+                }
+
+                return true;
+            });
+
+            // Sorting
+            switch (filterState.sort) {
+                case 'price_asc':
+                    result.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price_desc':
+                    result.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating_desc':
+                    result.sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
+                    break;
+                case 'discount_desc':
+                    result.sort((a, b) => calculateMarketDiscount(b.price, b.marketPrice) - calculateMarketDiscount(a.price, a.marketPrice));
+                    break;
+                default:
+                    // Featured: preserve newest/default order
+                    break;
+            }
+
+            return result;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            const resultCountText = document.getElementById('resultCountText');
+            const activeFilterBadge = document.getElementById('activeFilterBadge');
+
+            const filtered = getFilteredProducts();
+
+            // Update status bar
+            resultCountText.textContent = `Menampilkan ${filtered.length} dari ${products.length} sepatu`;
+            const hasFilter = filterState.search || filterState.category !== 'Semua' || filterState.brand !== 'Semua' || filterState.condition !== 'Semua' || filterState.wishlistOnly;
+            activeFilterBadge.classList.toggle('hidden', !hasFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(product => {
+                const discountPct = calculateMarketDiscount(product.price, product.marketPrice);
+                const isWishlisted = wishlist.includes(product.id);
+                const isNew = product.condition === 'Baru';
+
+                return `
+                <article class="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative aspect-square bg-slate-100 overflow-hidden cursor-pointer" onclick="openProductModal('${product.id}')">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy"
+                                onerror="this.onerror=null;this.src='${FALLBACK_SHOE_SVG}';"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Top Badges -->
+                            <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                                <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold shadow-xs backdrop-blur-md ${isNew ? 'bg-dark-900/90 text-white' : 'bg-amber-500/95 text-white'}">
+                                    ${isNew ? 'Baru (BNIB)' : 'Titip Jual'}
+                                </span>
+                                ${discountPct > 0 ? `
+                                <span class="px-2.5 py-1 rounded-lg text-[11px] font-extrabold bg-emerald-500 text-white shadow-xs">
+                                    Hemat ${discountPct}%
+                                </span>` : ''}
+                            </div>
+
+                            <!-- Wishlist Heart Button -->
+                            <button onclick="event.stopPropagation(); toggleWishlist('${product.id}')" 
+                                aria-label="Favorit"
+                                class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white shadow-sm flex items-center justify-center transition-transform active:scale-90 ${isWishlisted ? 'text-rose-500' : 'text-slate-600 hover:text-rose-500'}">
+                                <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart text-sm"></i>
+                            </button>
+
+                            <!-- Quick Sizes Preview Overlay -->
+                            <div class="absolute bottom-2.5 inset-x-2.5 bg-white/90 backdrop-blur-md rounded-xl px-2.5 py-1.5 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-slate-200/60">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase">Size EU:</span>
+                                <span class="text-[11px] font-bold text-slate-800">${product.sizes.join(', ')}</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-4 space-y-2.5">
+                            <!-- Brand & Rating -->
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="font-bold uppercase tracking-wider text-slate-400">${product.brand}</span>
+                                <button onclick="openProductModal('${product.id}', true)" class="flex items-center gap-1 text-amber-500 font-bold hover:underline" title="Lihat Ulasan Pembeli">
+                                    <i class="fa-solid fa-star text-[11px]"></i>
+                                    <span class="text-slate-800">${product.rating.toFixed(1)}</span>
+                                    <span class="text-slate-400 font-normal">(${product.reviewCount})</span>
+                                </button>
+                            </div>
+
+                            <!-- Product Title -->
+                            <h3 onclick="openProductModal('${product.id}')" class="font-display font-bold text-sm sm:text-base text-slate-900 line-clamp-2 leading-snug cursor-pointer group-hover:text-emerald-600 transition-colors">
+                                ${product.name}
+                            </h3>
+
+                            <!-- Market Price Comparison Block -->
+                            <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-100 space-y-1">
+                                <div class="flex items-center justify-between text-[11px] text-slate-500">
+                                    <span>Harga Pasaran:</span>
+                                    <span class="line-through font-medium">${formatRupiah(product.marketPrice)}</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                    <span>Retail (MSRP):</span>
+                                    <span>${formatRupiah(product.retailPrice)}</span>
+                                </div>
+                                <div class="pt-1 border-t border-slate-200/70 flex items-baseline justify-between">
+                                    <span class="font-display font-extrabold text-base sm:text-lg text-slate-900">${formatRupiah(product.price)}</span>
+                                    ${discountPct > 0 ? `<span class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">-${discountPct}% Pasar</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer CTA -->
+                    <div class="px-4 pb-4 pt-1 flex items-center gap-2">
+                        <button onclick="openProductModal('${product.id}')" class="flex-1 bg-dark-900 hover:bg-emerald-600 text-white text-xs font-bold py-2.5 px-3 rounded-xl transition-colors flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>Pilih Ukuran</span>
+                        </button>
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        // 6. FILTER & SEARCH HANDLERS
+        function handleSearch(val) {
+            filterState.search = val.trim();
+            // Sync desktop & mobile search inputs
+            document.getElementById('desktopSearchInput').value = val;
+            document.getElementById('mobileSearchInput').value = val;
+            document.getElementById('clearSearchBtn').classList.toggle('hidden', !val);
+            renderProducts();
+        }
+
+        function clearSearch() {
+            handleSearch('');
+        }
+
+        function setCategoryFilter(category) {
+            filterState.category = category;
+            // Reset brand filter if currently selected brand doesn't exist in the new category
+            if (category !== 'Semua' && filterState.brand !== 'Semua') {
+                const existsInCat = products.some(p => p.category === category && p.brand === filterState.brand);
+                if (!existsInCat) {
+                    filterState.brand = 'Semua';
+                }
+            }
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                const isActive = btn.dataset.cat === category;
+                btn.className = isActive
+                    ? 'cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-dark-900 text-white shadow-sm'
+                    : 'cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all bg-slate-100 text-slate-700 hover:bg-slate-200';
+            });
+            populateBrandControls();
+            renderProducts();
+        }
+
+        function setConditionFilter(condition) {
+            filterState.condition = condition;
+            document.querySelectorAll('.cond-btn').forEach(btn => {
+                const isActive = btn.dataset.cond === condition;
+                btn.className = isActive
+                    ? 'cond-btn px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition-all'
+                    : 'cond-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all';
+            });
+            renderProducts();
+        }
+
+        function handleSort(sortVal) {
+            filterState.sort = sortVal;
+            renderProducts();
+        }
+
+        function handleBrandFilter(brandVal) {
+            filterState.brand = brandVal;
+            const brandSelect = document.getElementById('brandSelect');
+            if (brandSelect) brandSelect.value = brandVal;
+            populateBrandControls();
+            renderProducts();
+        }
+
+        function toggleWishlistFilter() {
+            filterState.wishlistOnly = !filterState.wishlistOnly;
+            const btn = document.getElementById('wishlistNavBtn');
+            const icon = document.getElementById('wishlistNavIcon');
+            if (filterState.wishlistOnly) {
+                btn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-600');
+                icon.classList.replace('fa-regular', 'fa-solid');
+                showToast('Menampilkan sepatu favorit Anda', 'info');
+            } else {
+                btn.classList.remove('bg-rose-50', 'border-rose-400', 'text-rose-600');
+                icon.classList.replace('fa-solid', 'fa-regular');
+            }
+            renderProducts();
+        }
+
+        function resetAllFilters() {
+            filterState = {
+                search: '',
+                category: 'Semua',
+                brand: 'Semua',
+                condition: 'Semua',
+                sort: 'featured',
+                wishlistOnly: false
+            };
+            document.getElementById('desktopSearchInput').value = '';
+            document.getElementById('mobileSearchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+            document.getElementById('brandSelect').value = 'Semua';
+            document.getElementById('sortSelect').value = 'featured';
+            
+            const wBtn = document.getElementById('wishlistNavBtn');
+            const wIcon = document.getElementById('wishlistNavIcon');
+            wBtn.classList.remove('bg-rose-50', 'border-rose-400', 'text-rose-600');
+            wIcon.classList.replace('fa-solid', 'fa-regular');
+
+            setCategoryFilter('Semua');
+            setConditionFilter('Semua');
+        }
+
+        // 7. WISHLIST LOGIC
+        function toggleWishlist(productId) {
+            const idx = wishlist.indexOf(productId);
+            if (idx > -1) {
+                wishlist.splice(idx, 1);
+                showToast('Dihapus dari daftar favorit', 'info');
+            } else {
+                wishlist.push(productId);
+                showToast('Ditambahkan ke daftar favorit!', 'success');
+            }
+            saveWishlistToStorage();
+            updateWishlistBadge();
+            renderProducts();
+
+            if (currentModalProductId === productId) {
+                updateModalWishlistButton(productId);
+            }
+        }
+
+        function updateWishlistBadge() {
+            const badge = document.getElementById('wishlistBadge');
+            badge.textContent = wishlist.length;
+            badge.classList.toggle('hidden', wishlist.length === 0);
+        }
+
+        // 8. PRODUCT DETAIL MODAL & REVIEWS LOGIC
+        function openProductModal(productId, focusReviews = false) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            currentModalProductId = productId;
+            selectedModalSize = null;
+            document.getElementById('sizeErrorMsg').classList.add('hidden');
+            document.getElementById('addReviewForm').classList.add('hidden');
+
+            // Populate Basic Details
+            document.getElementById('modalBrandBadge').textContent = product.brand;
+            document.getElementById('modalCategoryText').textContent = product.category;
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalSellerName').textContent = product.seller;
+            document.getElementById('modalDescription').textContent = product.description;
+
+            const imgEl = document.getElementById('modalProductImg');
+            imgEl.src = product.image;
+            imgEl.onerror = function() { this.onerror = null; this.src = FALLBACK_SHOE_SVG; };
+
+            const condBadge = document.getElementById('modalConditionBadge');
+            const isNew = product.condition === 'Baru';
+            condBadge.textContent = isNew ? 'Baru (BNIB)' : 'Pre-loved / Titip Jual';
+            condBadge.className = `absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${isNew ? 'bg-dark-900 text-white' : 'bg-amber-500 text-white'}`;
+
+            // Price Comparison Data
+            const discountPct = calculateMarketDiscount(product.price, product.marketPrice);
+            const savedNominal = Math.max(0, product.marketPrice - product.price);
+            const ratioPct = Math.min(100, Math.round((product.price / product.marketPrice) * 100));
+
+            document.getElementById('modalRetailPrice').textContent = formatRupiah(product.retailPrice);
+            document.getElementById('modalMarketPrice').textContent = formatRupiah(product.marketPrice);
+            document.getElementById('modalSellingPrice').textContent = formatRupiah(product.price);
+            document.getElementById('modalSavingsBadge').textContent = discountPct > 0 ? `Hemat ${discountPct}%` : 'Harga Terbaik';
+            document.getElementById('modalPriceBar').style.width = `${ratioPct}%`;
+            document.getElementById('modalSavingsNominal').textContent = savedNominal > 0
+                ? `Kamu hemat ${formatRupiah(savedNominal)} dibanding rata-rata harga pasar!`
+                : 'Harga kompetitif sesuai standar pasar terkini.';
+
+            // Sizes Grid
+            const sizeGrid = document.getElementById('modalSizeGrid');
+            sizeGrid.innerHTML = product.sizes.map(size => `
+                <button type="button" onclick="selectModalSize(${size}, this)" 
+                    class="modal-size-btn py-2.5 rounded-xl border border-slate-200 hover:border-dark-900 text-xs font-bold text-slate-800 transition-all">
+                    EU ${size}
+                </button>
+            `).join('');
+
+            // Wishlist button state
+            updateModalWishlistButton(productId);
+
+            // Render Reviews
+            renderModalReviews(product);
+
+            // Show modal
+            document.getElementById('productModal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+
+            if (focusReviews) {
+                setTimeout(() => {
+                    document.getElementById('modalReviewsList').scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            currentModalProductId = null;
+        }
+
+        function selectModalSize(size, btnEl) {
+            selectedModalSize = size;
+            document.getElementById('sizeErrorMsg').classList.add('hidden');
+            document.querySelectorAll('.modal-size-btn').forEach(b => {
+                b.classList.remove('bg-dark-900', 'text-white', 'border-dark-900', 'ring-2', 'ring-emerald-500/40');
+                b.classList.add('border-slate-200', 'text-slate-800');
+            });
+            btnEl.classList.remove('border-slate-200', 'text-slate-800');
+            btnEl.classList.add('bg-dark-900', 'text-white', 'border-dark-900', 'ring-2', 'ring-emerald-500/40');
+        }
+
+        function updateModalWishlistButton(productId) {
+            const btn = document.getElementById('modalWishlistBtn');
+            const isWishlisted = wishlist.includes(productId);
+            btn.innerHTML = `<i class="${isWishlisted ? 'fa-solid text-rose-500' : 'fa-regular'} fa-heart text-lg"></i>`;
+        }
+
+        function toggleCurrentModalWishlist() {
+            if (currentModalProductId) {
+                toggleWishlist(currentModalProductId);
+            }
+        }
+
+        function renderModalReviews(product) {
+            document.getElementById('modalRatingScore').textContent = product.rating.toFixed(1);
+            document.getElementById('modalReviewCount').textContent = `(${product.reviewCount} ulasan)`;
+            document.getElementById('modalReviewTabCount').textContent = product.reviews.length;
+
+            const list = document.getElementById('modalReviewsList');
+            if (!product.reviews || product.reviews.length === 0) {
+                list.innerHTML = `<p class="text-xs text-slate-400 italic py-2">Belum ada ulasan tertulis. Jadilah yang pertama mengulas!</p>`;
+                return;
+            }
+
+            list.innerHTML = product.reviews.map(rev => {
+                const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
+                return `
+                <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 space-y-1">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-xs text-slate-800">${rev.author}</span>
+                            <span class="text-amber-500 text-xs tracking-tighter">${stars}</span>
+                        </div>
+                        <span class="text-[10px] text-slate-400">${rev.date}</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">${rev.comment}</p>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function toggleReviewForm() {
+            const form = document.getElementById('addReviewForm');
+            form.classList.toggle('hidden');
+        }
+
+        function submitNewReview(e) {
+            e.preventDefault();
+            if (!currentModalProductId) return;
+
+            const author = document.getElementById('reviewAuthorInput').value.trim();
+            const rating = parseInt(document.getElementById('reviewRatingInput').value, 10);
+            const comment = document.getElementById('reviewCommentInput').value.trim();
+
+            const productIndex = products.findIndex(p => p.id === currentModalProductId);
+            if (productIndex === -1) return;
+
+            const product = products[productIndex];
+            // Recalculate weighted average rating
+            const totalScore = (product.rating * product.reviewCount) + rating;
+            product.reviewCount += 1;
+            product.rating = Number((totalScore / product.reviewCount).toFixed(1));
+
+            product.reviews.unshift({
+                author,
+                rating,
+                date: 'Baru saja',
+                comment
+            });
+
+            saveProductsToStorage();
+            renderModalReviews(product);
+            renderProducts();
+
+            // Reset & hide form
+            document.getElementById('addReviewForm').reset();
+            document.getElementById('addReviewForm').classList.add('hidden');
+            showToast('Ulasan Anda berhasil ditambahkan!', 'success');
+        }
+
+        // 9. SHOPPING CART & CHECKOUT LOGIC
+        function addCurrentModalProductToCart() {
+            if (!currentModalProductId) return;
+            if (!selectedModalSize) {
+                document.getElementById('sizeErrorMsg').classList.remove('hidden');
+                return;
+            }
+
+            addToCart(currentModalProductId, selectedModalSize);
+            closeProductModal();
+            toggleCart(true);
+        }
+
+        function addToCart(productId, size) {
+            const existingIndex = cart.findIndex(item => item.productId === productId && item.size === size);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    productId,
+                    size,
+                    qty: 1
+                });
+            }
+            saveCartToStorage();
+            updateCartUI();
+            showToast(`Sepatu (EU ${size}) ditambahkan ke keranjang!`, 'success');
+        }
+
+        function updateCartQty(index, delta) {
+            if (!cart[index]) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCartToStorage();
+            updateCartUI();
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            saveCartToStorage();
+            updateCartUI();
+            showToast('Item dihapus dari keranjang', 'info');
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            if (open) {
+                drawer.classList.remove('hidden');
+                drawer.classList.add('flex');
+                backdrop.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                drawer.classList.add('hidden');
+                drawer.classList.remove('flex');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function copyPromoCode() {
+            const tempInput = document.createElement('input');
+            tempInput.value = 'SNEAKER10';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('Kode promo SNEAKER10 disalin ke clipboard!', 'success');
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById('promoCodeInput').value.trim().toUpperCase();
+            const feedback = document.getElementById('promoFeedbackMsg');
+            feedback.classList.remove('hidden');
+
+            if (code === 'SNEAKER10') {
+                promoApplied = true;
+                feedback.textContent = 'Kode promo SNEAKER10 aktif! Diskon ekstra 10% diterapkan.';
+                feedback.className = 'text-[11px] font-semibold text-emerald-600';
+                updateCartUI();
+            } else {
+                promoApplied = false;
+                feedback.textContent = 'Kode promo tidak valid. Coba gunakan SNEAKER10.';
+                feedback.className = 'text-[11px] font-semibold text-rose-500';
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadge').textContent = totalItems;
+            document.getElementById('cartDrawerCount').textContent = totalItems;
+
+            const container = document.getElementById('cartItemsContainer');
+            const footer = document.getElementById('cartFooter');
+
+            if (cart.length === 0) {
+                footer.classList.add('hidden');
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <h4 class="font-display font-bold text-slate-800">Keranjang Masih Kosong</h4>
+                        <p class="text-xs text-slate-500 max-w-xs">Temukan sepatu impianmu dengan harga di bawah pasaran sekarang.</p>
+                        <button onclick="toggleCart(false)" class="mt-2 bg-dark-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Mulai Belanja</button>
+                    </div>
+                `;
+                return;
+            }
+
+            footer.classList.remove('hidden');
+
+            let subtotal = 0;
+            let totalMarketValue = 0;
+
+            container.innerHTML = cart.map((item, idx) => {
+                const product = products.find(p => p.id === item.productId);
+                if (!product) return '';
+
+                subtotal += product.price * item.qty;
+                totalMarketValue += product.marketPrice * item.qty;
+
+                return `
+                <div class="flex gap-3.5 bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.onerror=null;this.src='${FALLBACK_SHOE_SVG}';" class="w-20 h-20 rounded-xl object-cover bg-slate-100 shrink-0">
+                    <div class="flex-1 min-w-0 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between gap-2">
+                                <h4 class="font-display font-bold text-xs text-slate-900 line-clamp-2 leading-snug">${product.name}</h4>
+                                <button onclick="removeCartItem(${idx})" class="text-slate-400 hover:text-rose-500 text-xs p-1" title="Hapus">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <span class="inline-block mt-1 text-[11px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md">
+                                Size: EU ${item.size}
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="font-bold text-xs text-emerald-700">${formatRupiah(product.price * item.qty)}</span>
+                            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                                <button onclick="updateCartQty(${idx}, -1)" class="px-2 py-1 text-xs hover:bg-slate-100 font-bold text-slate-600">-</button>
+                                <span class="px-2.5 py-1 text-xs font-bold text-slate-900">${item.qty}</span>
+                                <button onclick="updateCartQty(${idx}, 1)" class="px-2 py-1 text-xs hover:bg-slate-100 font-bold text-slate-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            // Calculate totals
+            const marketSavings = Math.max(0, totalMarketValue - subtotal);
+            const promoDiscount = promoApplied ? Math.round(subtotal * 0.10) : 0;
+            const authFee = 25000;
+            const grandTotal = subtotal - promoDiscount + authFee;
+
+            document.getElementById('cartSubtotal').textContent = formatRupiah(subtotal);
+            document.getElementById('cartMarketSavings').textContent = `- ${formatRupiah(marketSavings)}`;
+
+            const promoRow = document.getElementById('cartPromoRow');
+            if (promoApplied) {
+                promoRow.classList.remove('hidden');
+                promoRow.classList.add('flex');
+                document.getElementById('cartPromoDiscount').textContent = `- ${formatRupiah(promoDiscount)}`;
+            } else {
+                promoRow.classList.add('hidden');
+                promoRow.classList.remove('flex');
+            }
+
+            document.getElementById('cartGrandTotal').textContent = formatRupiah(grandTotal);
+        }
+
+        function processCheckout() {
+            if (cart.length === 0) return;
+
+            const grandTotalText = document.getElementById('cartGrandTotal').textContent;
+            const savedText = document.getElementById('cartMarketSavings').textContent.replace('- ', '');
+            const randomInvoice = '#KV-' + Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById('orderInvoiceId').textContent = randomInvoice;
+            document.getElementById('orderPaidAmount').textContent = grandTotalText;
+            document.getElementById('orderSavedAmount').textContent = savedText;
+
+            // Clear cart
+            cart = [];
+            promoApplied = false;
+            document.getElementById('promoCodeInput').value = '';
+            document.getElementById('promoFeedbackMsg').classList.add('hidden');
+            saveCartToStorage();
+            updateCartUI();
+
+            toggleCart(false);
+            document.getElementById('checkoutSuccessModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutSuccessModal').classList.add('hidden');
+        }
+
+        // 10. SELL / CONSIGN NEW SHOE MODAL LOGIC
+        function openSellModal() {
+            document.getElementById('sellModal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeSellModal() {
+            document.getElementById('sellModal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function selectPresetImage(url) {
+            document.getElementById('sellImageUrl').value = url;
+            showToast('Preset foto sepatu dipilih!', 'info');
+        }
+
+        function updateSellSavingsPreview() {
+            const price = Number(document.getElementById('sellPrice').value) || 0;
+            const market = Number(document.getElementById('sellMarketPrice').value) || 0;
+            const badge = document.getElementById('sellLiveSavingsPreview');
+
+            if (price > 0 && market > price) {
+                const pct = calculateMarketDiscount(price, market);
+                badge.textContent = `Hemat ${pct}% dari Pasar`;
+                badge.className = 'text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full';
+            } else {
+                badge.textContent = 'Harga Standar Pasar';
+                badge.className = 'text-[11px] font-bold text-slate-600 bg-slate-200 px-2.5 py-0.5 rounded-full';
+            }
+        }
+
+        function handleSellSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('sellName').value.trim();
+            const brand = document.getElementById('sellBrand').value.trim();
+            const category = document.getElementById('sellCategory').value;
+            const condition = document.getElementById('sellCondition').value;
+            const seller = document.getElementById('sellSeller').value.trim();
+            const price = Number(document.getElementById('sellPrice').value);
+            const marketPrice = Number(document.getElementById('sellMarketPrice').value);
+            const retailPrice = Number(document.getElementById('sellRetailPrice').value) || marketPrice;
+            const imageInput = document.getElementById('sellImageUrl').value.trim();
+            const description = document.getElementById('sellDescription').value.trim();
+
+            // Gather selected sizes
+            const sizeCheckboxes = document.querySelectorAll('.sell-size-cb:checked');
+            const selectedSizes = Array.from(sizeCheckboxes).map(cb => Number(cb.value));
+
+            if (selectedSizes.length === 0) {
+                showToast('Pilih minimal 1 ukuran sepatu yang tersedia!', 'error');
+                return;
+            }
+
+            const newShoe = {
+                id: 'kv-' + Date.now(),
+                name,
+                brand,
+                category,
+                condition,
+                price,
+                retailPrice,
+                marketPrice,
+                rating: 5.0,
+                reviewCount: 1,
+                sizes: selectedSizes.sort((a, b) => a - b),
+                seller,
+                image: imageInput || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+                description,
+                reviews: [
+                    {
+                        author: 'Tim Verifikasi KickVault',
+                        rating: 5,
+                        date: 'Baru saja',
+                        comment: 'Listing terverifikasi dan siap ditransaksikan dengan perlindungan pembeli.'
+                    }
+                ]
+            };
+
+            // Add to top of catalog
+            products.unshift(newShoe);
+            saveProductsToStorage();
+            populateBrandControls();
+
+            // Reset filters so user sees their newly listed shoe immediately
+            resetAllFilters();
+            closeSellModal();
+            document.getElementById('sellShoeForm').reset();
+            updateSellSavingsPreview();
+
+            showToast(`"${name}" berhasil ditayangkan ke katalog!`, 'success');
+            document.getElementById('katalogSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 11. TOAST NOTIFICATION SYSTEM
+        let toastTimeout = null;
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const icon = document.getElementById('toastIcon');
+            const msgEl = document.getElementById('toastMessage');
+
+            msgEl.textContent = message;
+
+            if (type === 'error') {
+                icon.className = 'fa-solid fa-circle-exclamation text-rose-400 text-base';
+            } else if (type === 'info') {
+                icon.className = 'fa-solid fa-circle-info text-sky-400 text-base';
+            } else {
+                icon.className = 'fa-solid fa-circle-check text-emerald-400 text-base';
+            }
+
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
